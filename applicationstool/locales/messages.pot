@@ -1,0 +1,913 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-11-22 19:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: redgettext 3.4.2\n"
+
+#: applicationtool\settings.py:34 applicationtool\settings.py:37
+#: applicationtool\applicationtool.py:490 applicationtool\applicationtool.py:493
+#: applicationtool\applicationtool.py:508
+msgid "This panel does not exist."
+msgstr ""
+
+#: applicationtool\settings.py:53
+#, docstring
+msgid "Create a new panel with defaults settings."
+msgstr ""
+
+#: applicationtool\settings.py:55 applicationtool\settings.py:67
+#: applicationtool\settings.py:109
+msgid "The name of a panel must be less than or equal to 10 characters."
+msgstr ""
+
+#: applicationtool\settings.py:59 applicationtool\settings.py:71
+msgid "This panel already exists."
+msgstr ""
+
+#: applicationtool\settings.py:65 applicationtool\settings.py:107
+#, docstring
+msgid "Clone an existing panel with his settings."
+msgstr ""
+
+#: applicationtool\settings.py:78
+#, docstring
+msgid "Remove an existing panel."
+msgstr ""
+
+#: applicationtool\settings.py:82
+msgid "Do you really want to remove this panel?"
+msgstr ""
+
+#: applicationtool\settings.py:85
+msgid ""
+"All applications associated with this panel will be removed from the Config, but "
+"the channels will still exist. Commands related to the applications will no "
+"longer work."
+msgstr ""
+
+#: applicationtool\settings.py:113
+msgid "A panel with this name already exists."
+msgstr ""
+
+#: applicationtool\settings.py:131
+#, docstring
+msgid "List the existing panels."
+msgstr ""
+
+#: applicationtool\settings.py:139
+#, docstring
+msgid ""
+"Enable or disable Application System\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:151
+msgid ""
+"You cannot enable the application system on this server if you have not configured the following options:\n"
+"- The category of open applications : `{ctx.prefix}setapplication categoryopen <category>`\n"
+"- The category of close applications : `{ctx.prefix}setapplication categoryclose <category>`\n"
+"- The admin role has full access to the applications : `{ctx.prefix}setapplication adminrole <role>`\n"
+"All other parameters are optional or have default values that will be used."
+msgstr ""
+
+#: applicationtool\settings.py:163
+msgid "Application System is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:167
+msgid "Application System state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:176
+#, docstring
+msgid ""
+"Set a channel where events are registered.\n"
+"\n"
+"        ``channel``: Text channel.\n"
+"        You can also use \"None\" if you wish to remove the logging channel.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:183
+msgid "Logging channel removed."
+msgstr ""
+
+#: applicationtool\settings.py:198
+msgid ""
+"The bot does not have at least one of the following permissions in this "
+"channel: `embed_links`, `read_messages`, `read_message_history`, "
+"`send_messages`, `attach_files`."
+msgstr ""
+
+#: applicationtool\settings.py:205
+msgid "Logging channel registered: {channel.mention}."
+msgstr ""
+
+#: applicationtool\settings.py:211
+#, docstring
+msgid ""
+"Set a category where open applications are created.\n"
+"\n"
+"        ``category``: Category.\n"
+"        You can also use \"None\" if you wish to remove the open category.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:218
+msgid "Category Open removed."
+msgstr ""
+
+#: applicationtool\settings.py:222
+msgid "Category Open registered: {category.name}."
+msgstr ""
+
+#: applicationtool\settings.py:228
+#, docstring
+msgid ""
+"Set a category where close applications are created.\n"
+"\n"
+"        ``category``: Category.\n"
+"        You can also use \"None\" if you wish to remove the close category.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:235
+msgid "Category Close removed."
+msgstr ""
+
+#: applicationtool\settings.py:239
+msgid "Category Close registered: {category.name}."
+msgstr ""
+
+#: applicationtool\settings.py:245
+#, docstring
+msgid ""
+"Set a role for administrators of the application system.\n"
+"\n"
+"        ``role``: Role.\n"
+"        You can also use \"None\" if you wish to remove the admin role.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:252
+msgid "Admin Role removed."
+msgstr ""
+
+#: applicationtool\settings.py:256
+msgid "Admin Role registered: {role.name}."
+msgstr ""
+
+#: applicationtool\settings.py:262
+#, docstring
+msgid ""
+"Set a role for helpers of the application system.\n"
+"\n"
+"        ``role``: Role.\n"
+"        You can also use \"None\" if you wish to remove the support role.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:269
+msgid "Support Role removed."
+msgstr ""
+
+#: applicationtool\settings.py:273
+msgid "Support Role registered: {role.name}."
+msgstr ""
+
+#: applicationtool\settings.py:279
+#, docstring
+msgid ""
+"Set a role for creaters of an application.\n"
+"\n"
+"        ``role``: Role.\n"
+"        You can also use \"None\" if you wish to remove the application role.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:286
+msgid "Application Role removed."
+msgstr ""
+
+#: applicationtool\settings.py:290
+msgid "Application Role registered: {role.name}."
+msgstr ""
+
+#: applicationtool\settings.py:294
+#, docstring
+msgid ""
+"Set a role for viewers of applications.\n"
+"\n"
+"        ``role``: Role.\n"
+"        You can also use \"None\" if you wish to remove the view role.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:301
+msgid "View Role removed."
+msgstr ""
+
+#: applicationtool\settings.py:305
+msgid "View Role registered: {role.name}."
+msgstr ""
+
+#: applicationtool\settings.py:309
+#, docstring
+msgid ""
+"Set a role for pings on application creation.\n"
+"\n"
+"        ``role``: Role.\n"
+"        You can also use \"None\" if you wish to remove the ping role.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:316
+msgid "Ping Role removed."
+msgstr ""
+
+#: applicationtool\settings.py:320
+msgid "Ping Role registered: {role.name}."
+msgstr ""
+
+#: applicationtool\settings.py:324
+#, docstring
+msgid "Max Number of applications for a member."
+msgstr ""
+
+#: applicationtool\settings.py:330
+msgid "Max Number of applications is already set on {nb_max}."
+msgstr ""
+
+#: applicationtool\settings.py:335
+msgid "Max Number of applications registered: {nb_max}."
+msgstr ""
+
+#: applicationtool\settings.py:339
+#, docstring
+msgid ""
+"Enable or disable Modlog.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:347
+msgid "Modlog is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:351
+msgid "Modlog state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:355
+#, docstring
+msgid ""
+"Enable or disable Close on Leave.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:363
+msgid "Close on Leave is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:367
+msgid "Close on Leave state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:371
+#, docstring
+msgid ""
+"Enable or disable Create on React.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        Remember that this feature will only work for the `main` profile!\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:380
+msgid "Create on React is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:384
+msgid ""
+"Create on React state registered: {state}. Remember that this feature will "
+"only work for the `main` profile!"
+msgstr ""
+
+#: applicationtool\settings.py:388
+#, docstring
+msgid ""
+"Enable or disable User Can Close.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:396
+msgid "User Can Close is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:400
+msgid "User Can Close state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:404
+#, docstring
+msgid ""
+"Enable or disable Delete On Close.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:412
+msgid "Delete On Close is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:416
+msgid "Delete On Close state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:422
+#, docstring
+msgid ""
+"Set the Dinamic Application Channel Name.\n"
+"\n"
+"        `{application_id}` - Application number\n"
+"        `{owner_display_name}` - user's nick or name\n"
+"        `{owner_name}` - user's name\n"
+"        `{owner_id}` - user's id\n"
+"        `{guild_name}` - guild's name\n"
+"        `{guild_id}` - guild's id\n"
+"        `{bot_display_name}` - bot's nick or name\n"
+"        `{bot_name}` - bot's name\n"
+"        `{bot_id}` - bot's id\n"
+"        `{shortdate}` - mm-dd\n"
+"        `{longdate}` - mm-dd-yyyy\n"
+"        `{time}` - hh-mm AM/PM according to bot host system time\n"
+"\n"
+"        If, when creating the application, an error occurs with this name, another name will be used automatically.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:451
+#, docstring
+msgid ""
+"Set the Custom Message.\n"
+"\n"
+"        `{application_id}` - Application number\n"
+"        `{owner_display_name}` - user's nick or name\n"
+"        `{owner_name}` - user's name\n"
+"        `{owner_id}` - user's id\n"
+"        `{guild_name}` - guild's name\n"
+"        `{guild_id}` - guild's id\n"
+"        `{bot_display_name}` - bot's nick or name\n"
+"        `{bot_name}` - bot's name\n"
+"        `{bot_id}` - bot's id\n"
+"        `{shortdate}` - mm-dd\n"
+"        `{longdate}` - mm-dd-yyyy\n"
+"        `{time}` - hh-mm AM/PM according to bot host system time\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:484
+#, docstring
+msgid ""
+"Set a colour for the embeds.\n"
+"\n"
+"        ``color``: Color.\n"
+"        You can also use \"None\" if you wish to reset the color.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:497 applicationtool\settings.py:508
+#: applicationtool\settings.py:528 applicationtool\settings.py:541
+msgid "Configure the embed"
+msgstr ""
+
+#: applicationtool\settings.py:498
+msgid "Reset color:"
+msgstr ""
+
+#: applicationtool\settings.py:499 applicationtool\settings.py:512
+msgid "Color:"
+msgstr ""
+
+#: applicationtool\settings.py:509
+msgid "Set color:"
+msgstr ""
+
+#: applicationtool\settings.py:517
+#, docstring
+msgid ""
+"Set a thumbnail for the embeds.\n"
+"\n"
+"        ``link``: Thumbnail link.\n"
+"        You can also use \"None\" if you wish to reset the thumbnail.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:529
+msgid "Reset thumbnail:"
+msgstr ""
+
+#: applicationtool\settings.py:532 applicationtool\settings.py:545
+msgid "Thumbnail:"
+msgstr ""
+
+#: applicationtool\settings.py:542
+msgid "Set thumbnail:"
+msgstr ""
+
+#: applicationtool\settings.py:550
+#, docstring
+msgid ""
+"Make the author of each action concerning an application appear in the server logs.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:558
+msgid "Audit Logs is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:562
+msgid "Audit Logs state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:566
+#, docstring
+msgid ""
+"Enable or disable Close Confirmation.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:574
+msgid "Close Confirmation is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:578
+msgid "Close Confirmation state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:589
+#, docstring
+msgid "Set the settings for the button embed."
+msgstr ""
+
+#: applicationtool\settings.py:616
+#, docstring
+msgid ""
+"Enable or disable Rename Channel Dropdown.\n"
+"\n"
+"        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:625
+msgid "Rename Channel Dropdown is already set on {state}."
+msgstr ""
+
+#: applicationtool\settings.py:630
+msgid "Rename Channel Dropdown state registered: {state}."
+msgstr ""
+
+#: applicationtool\settings.py:641
+#, docstring
+msgid ""
+"Send a message with a button to open an application or dropdown with possible reasons.\n"
+"\n"
+"        Example:\n"
+"        `[p]setapplication message #general \"🐛|Report a bug|If you find a bug, report it here.|bug\" \"⚠️|Report a user|If you find a malicious user, report it here.|user\"`\n"
+"        `[p]setapplication 1234567890-0987654321`\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:653
+msgid "I have to be the author of the message for the interaction to work."
+msgstr ""
+
+#: applicationtool\settings.py:684 applicationtool\settings.py:780
+msgid ""
+"An emoji you selected seems invalid. Check that it is an emoji. If you have "
+"Nitro, you may have used a custom emoji from another server."
+msgstr ""
+
+#: applicationtool\settings.py:695 applicationtool\settings.py:761
+#: applicationtool\applicationtool.py:150
+msgid "Create application"
+msgstr ""
+
+#: applicationtool\settings.py:843
+#, docstring
+msgid ""
+"Purge all existing applications in the config. Does not delete any channels.\n"
+"\n"
+"        All commands associated with the applications will no longer work.\n"
+"        "
+msgstr ""
+
+#: applicationtool\settings.py:849
+msgid "Do you really want to purge all the applications in the config?"
+msgstr ""
+
+#: applicationtool\settings.py:852
+msgid ""
+"Does not delete any channels. All commands associated with the applications will "
+"no longer work."
+msgstr ""
+
+#: applicationtool\settings.py:878
+msgid "{count} applications have been removed from the config."
+msgstr ""
+
+#: applicationtool\applicationtool.py:43
+#, docstring
+msgid "A cog to manage an application system!"
+msgstr ""
+
+#: applicationtool\applicationtool.py:86
+msgid ""
+"To get help on this server or to make an order for example, you can open an application.\n"
+"Just use the command `{prefix}application create` or click on the button below.\n"
+"You can then use the `{prefix}application` subcommand to manage your application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:166 applicationtool\applicationtool.py:1406
+#: applicationtool\applicationtool.py:1426 applicationtool\applicationtool.py:1580
+#: applicationtool\applicationtool.py:1604 applicationtool\applicationtool.py:1666
+#: applicationtool\applicationtool.py:1690 applicationtool\applicationtool.py:1839
+#: applicationtool\applicationtool.py:1863 applicationtool\applicationtool.py:1923
+#: applicationtool\applicationtool.py:1947
+msgid "Close"
+msgstr ""
+
+#: applicationtool\applicationtool.py:173 applicationtool\applicationtool.py:1413
+#: applicationtool\applicationtool.py:1433 applicationtool\applicationtool.py:1587
+#: applicationtool\applicationtool.py:1611 applicationtool\applicationtool.py:1673
+#: applicationtool\applicationtool.py:1697 applicationtool\applicationtool.py:1846
+#: applicationtool\applicationtool.py:1870 applicationtool\applicationtool.py:1930
+#: applicationtool\applicationtool.py:1954
+msgid "Claim"
+msgstr ""
+
+#: applicationtool\applicationtool.py:289
+msgid "Action taken for the application system."
+msgstr ""
+
+#: applicationtool\applicationtool.py:319
+msgid "Application ID:"
+msgstr ""
+
+#: applicationtool\applicationtool.py:322
+msgid "Owned by:"
+msgstr ""
+
+#: applicationtool\applicationtool.py:329
+msgid "Channel:"
+msgstr ""
+
+#: applicationtool\applicationtool.py:336
+msgid "Closed by:"
+msgstr ""
+
+#: applicationtool\applicationtool.py:344
+msgid "Deleted by:"
+msgstr ""
+
+#: applicationtool\applicationtool.py:352
+msgid "Closed at:"
+msgstr ""
+
+#: applicationtool\applicationtool.py:356 applicationtool\applicationtool.py:380
+msgid "Reason:"
+msgstr ""
+
+#: applicationtool\applicationtool.py:364
+msgid "Application [{application.panel}] {application.id} - Action taken"
+msgstr ""
+
+#: applicationtool\applicationtool.py:505
+#, docstring
+msgid "Open an application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:515
+msgid ""
+"The application system is not enabled on this server. Please ask an administrator"
+" of this server to use the `{ctx.prefix}applicationset` subcommands to configure "
+"it."
+msgstr ""
+
+#: applicationtool\applicationtool.py:522
+msgid ""
+"The category `open` or the category `close` have not been configured. Please"
+" ask an administrator of this server to use the `{ctx.prefix}applicationset` "
+"subcommands to configure it."
+msgstr ""
+
+#: applicationtool\applicationtool.py:529
+msgid "Sorry. You have already reached the limit of applications you can open to join Rome."
+msgstr ""
+
+#: applicationtool\applicationtool.py:539
+msgid ""
+"The bot does not have `manage_channels` permission on the 'open' and 'close'"
+" categories to allow the application system to function properly. Please notify "
+"an administrator of this server."
+msgstr ""
+
+#: applicationtool\applicationtool.py:563
+#, docstring
+msgid ""
+"Export all the messages of an existing application in html format.\n"
+"        Please note: all attachments and user avatars are saved with the Discord link in this file.\n"
+"        "
+msgstr ""
+
+#: applicationtool\applicationtool.py:584
+msgid ""
+"Here is the html file of the transcript of all the messages in this application.\n"
+"Please note: all attachments and user avatars are saved with the Discord link in this file."
+msgstr ""
+
+#: applicationtool\applicationtool.py:607
+#, docstring
+msgid "Open an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:611
+msgid "The application system is not enabled on this server."
+msgstr ""
+
+#: applicationtool\applicationtool.py:637
+#, docstring
+msgid "Close an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:648
+msgid "Do you really want to close the application {application.id}?"
+msgstr ""
+
+#: applicationtool\applicationtool.py:686
+#, docstring
+msgid "Rename an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:712
+#, docstring
+msgid ""
+"Delete an existing application.\n"
+"        If a log channel is defined, an html file containing all the messages of this application will be generated.\n"
+"        (Attachments are not supported, as they are saved with their Discord link)\n"
+"        "
+msgstr ""
+
+#: applicationtool\applicationtool.py:720
+msgid ""
+"Do you really want to delete all the messages of the application {application.id}?"
+msgstr ""
+
+#: applicationtool\applicationtool.py:723
+msgid ""
+"If a log channel is defined, an html file containing all the messages of "
+"this application will be generated. (Attachments are not supported, as they are "
+"saved with their Discord link)"
+msgstr ""
+
+#: applicationtool\applicationtool.py:761
+#, docstring
+msgid "Claim an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:785
+#, docstring
+msgid "Unclaim an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:811
+#, docstring
+msgid "Change the owner of an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:838
+#, docstring
+msgid "Add a member to an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:864
+#, docstring
+msgid "Remove a member to an existing application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:889 applicationtool\applicationtool.py:1003
+#: applicationtool\applicationtool.py:1058
+msgid "The panel for which this button was configured no longer exists."
+msgstr ""
+
+#: applicationtool\applicationtool.py:896 applicationtool\applicationtool.py:955
+#: applicationtool\applicationtool.py:1010 applicationtool\applicationtool.py:1069
+msgid "You are not allowed to execute this command."
+msgstr ""
+
+#: applicationtool\applicationtool.py:900 applicationtool\applicationtool.py:1014
+msgid "You have chosen to open an application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:907 applicationtool\applicationtool.py:1021
+msgid ""
+"You have chosen to close this application. If this is not done, you do not have "
+"the necessary permissions to execute this command."
+msgstr ""
+
+#: applicationtool\applicationtool.py:915 applicationtool\applicationtool.py:1029
+msgid ""
+"You have chosen to claim this application. If this is not done, you do not have "
+"the necessary permissions to execute this command."
+msgstr ""
+
+#: applicationtool\applicationtool.py:937
+msgid "This message is not in ApplicationTool config."
+msgstr ""
+
+#: applicationtool\applicationtool.py:942
+msgid "The panel for which this dropdown was configured no longer exists."
+msgstr ""
+
+#: applicationtool\applicationtool.py:974 applicationtool\applicationtool.py:1090
+msgid "You have chosen to open an application with the reason `{reason}`."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1053
+msgid "This message is not in ApplicationTool Config."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1218
+msgid "No reason provided."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1356
+msgid "Creating the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1390 applicationtool\applicationtool.py:1896
+msgid ""
+"🎟️ Application ID: {application.id}\n"
+"🔥 Channel ID: {application.channel.id}\n"
+"🕵️ Application created by: @{application.created_by.display_name} ({application.created_by.id})\n"
+"☢️ Application reason: {application.reason}\n"
+"👥 Application claimed by: Nobody."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1447 applicationtool\applicationtool.py:1493
+msgid "Application Created"
+msgstr ""
+
+#: applicationtool\applicationtool.py:1448
+msgid "Thank you for creating an application on this server!"
+msgstr ""
+
+#: applicationtool\applicationtool.py:1494
+msgid "The application was created by {application.created_by}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1499
+msgid "Report on the creation of the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1539
+msgid "Opening the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1555 applicationtool\applicationtool.py:1563
+msgid "Application Opened"
+msgstr ""
+
+#: applicationtool\applicationtool.py:1564
+msgid "The application was opened by {application.opened_by}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1569 applicationtool\applicationtool.py:1655
+msgid "Report on the close of the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1717
+msgid ""
+"Renaming the application {application.id}. (`{application.channel.name}` to `{new_name}`)"
+msgstr ""
+
+#: applicationtool\applicationtool.py:1729
+msgid "Application Renamed."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1742
+msgid "Deleting the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1752
+msgid "Application Deleted"
+msgstr ""
+
+#: applicationtool\applicationtool.py:1753
+msgid "The application was deleted by {application.deleted_by}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1780
+msgid "Report on the deletion of the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1801 applicationtool\applicationtool.py:1893
+msgid "Claiming the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1804
+msgid "A bot cannot claim an application."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1807
+msgid ""
+"🎟️ Application ID: {application.id}\n"
+"🔥 Channel ID: {application.channel.id}\n"
+"🕵️ Application created by: @{application.created_by.display_name} ({application.created_by.id})\n"
+"☢️ Application reason: {application.reason}\n"
+"👥 Application claimed by: @{application.claim.display_name}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1977
+msgid "Changing owner of the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:1981
+msgid "You cannot transfer ownership of an application to a bot."
+msgstr ""
+
+#: applicationtool\applicationtool.py:2010
+msgid "Owner Modified."
+msgstr ""
+
+#: applicationtool\applicationtool.py:2026
+msgid "Adding a member to the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:2037
+msgid "You cannot add a bot to an application. ({member})"
+msgstr ""
+
+#: applicationtool\applicationtool.py:2043
+msgid "This member is already the owner of this application. ({member})"
+msgstr ""
+
+#: applicationtool\applicationtool.py:2050
+msgid ""
+"This member is an administrator for the application system. They will always have"
+" access to the application anyway. ({member})"
+msgstr ""
+
+#: applicationtool\applicationtool.py:2057
+msgid "This member already has access to this application. ({member})"
+msgstr ""
+
+#: applicationtool\applicationtool.py:2085
+msgid "Removing a member to the application {application.id}."
+msgstr ""
+
+#: applicationtool\applicationtool.py:2099
+msgid "You cannot remove a bot to an application ({member})."
+msgstr ""
+
+#: applicationtool\applicationtool.py:2105
+msgid "You cannot remove the owner of this application. ({member})"
+msgstr ""
+
+#: applicationtool\applicationtool.py:2112
+msgid ""
+"This member is an administrator for the application system. They will always have"
+" access to the application. ({member})"
+msgstr ""
+
+#: applicationtool\applicationtool.py:2119
+msgid ""
+"This member is not in the list of those authorised to access the application. "
+"({member})"
+msgstr ""
+
+#: applicationtool\utils.py:103
+msgid ""
+"Emoji Label must be An emoji followed by an string, and optionnaly by a "
+"description and a value (for rename application channel), separated by either "
+"`;`, `,`, `|`, or `-`."
+msgstr ""
