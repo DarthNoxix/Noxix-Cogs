@@ -5,13 +5,13 @@ from redbot.core.utils import get_end_user_data_statement
 if not CogsUtils().is_dpy2:
     from dislash import InteractionClient
 
-from .tickettool import TicketTool
+from .applicationtool import ApplicationTool
 
 __red_end_user_data_statement__ = get_end_user_data_statement(file=__file__)
 
 
 async def setup(bot: Red) -> None:
-    cog = TicketTool(bot)
+    cog = ApplicationTool(bot)
     await cog.cogsutils.add_cog(bot)
     if not CogsUtils().is_dpy2:
         if not hasattr(bot, "slash"):

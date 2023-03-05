@@ -23,11 +23,11 @@ import chat_exporter
 
 from .utils import utils
 
-_ = Translator("TicketTool", __file__)
+_ = Translator("ApplicationTool", __file__)
 
 
-class Ticket:
-    """Representation of a ticket"""
+class Application:
+    """Representation of an application"""
 
     def __init__(
         self,
@@ -85,9 +85,9 @@ class Ticket:
     def instance(
         ctx: commands.Context,
         panel: str,
-        reason: typing.Optional[str] = _("No reason provided."),
+        reason: typing.Optional[str] = _("Applicationm to join Rome."),
     ) -> typing.Any:  # typing_extensions.Self
-        ticket: Ticket = Ticket(
+        application: Application = Application(
             bot=ctx.bot,
             cog=ctx.cog,
             id=None,
@@ -113,11 +113,11 @@ class Ticket:
             first_message=None,
             panel=panel,
         )
-        return ticket
+        return application
 
     @staticmethod
     def from_json(json: dict, bot: Red, cog: commands.Cog) -> typing.Any:  # typing_extensions.Self
-        ticket: Ticket = Ticket(
+        application: Application = Application(
             bot=bot,
             cog=cog,
             id=json["id"],
@@ -143,131 +143,131 @@ class Ticket:
             first_message=json["first_message"],
             panel=json["panel"],
         )
-        return ticket
+        return application
 
-    async def save(ticket) -> typing.Dict[str, typing.Any]:
-        if not ticket.save_data:
+    async def save(application) -> typing.Dict[str, typing.Any]:
+        if not application.save_data:
             return
-        cog = ticket.cog
-        guild = ticket.guild
-        channel = ticket.channel
-        ticket.bot = None
-        ticket.cog = None
-        if ticket.owner is not None:
-            ticket.owner = int(getattr(ticket.owner, "id", ticket.owner))
-        if ticket.guild is not None:
-            ticket.guild = int(ticket.guild.id)
-        if ticket.channel is not None:
-            ticket.channel = int(ticket.channel.id)
-        if ticket.claim is not None:
-            ticket.claim = ticket.claim.id
-        if ticket.created_by is not None:
-            ticket.created_by = (
-                int(ticket.created_by.id)
-                if not isinstance(ticket.created_by, int)
-                else int(ticket.created_by)
+        cog = application.cog
+        guild = application.guild
+        channel = application.channel
+        application.bot = None
+        application.cog = None
+        if application.owner is not None:
+            application.owner = int(getattr(application.owner, "id", application.owner))
+        if application.guild is not None:
+            application.guild = int(application.guild.id)
+        if application.channel is not None:
+            application.channel = int(application.channel.id)
+        if application.claim is not None:
+            application.claim = application.claim.id
+        if application.created_by is not None:
+            application.created_by = (
+                int(application.created_by.id)
+                if not isinstance(application.created_by, int)
+                else int(application.created_by)
             )
-        if ticket.opened_by is not None:
-            ticket.opened_by = (
-                int(ticket.opened_by.id)
-                if not isinstance(ticket.opened_by, int)
-                else int(ticket.opened_by)
+        if application.opened_by is not None:
+            application.opened_by = (
+                int(application.opened_by.id)
+                if not isinstance(application.opened_by, int)
+                else int(application.opened_by)
             )
-        if ticket.closed_by is not None:
-            ticket.closed_by = (
-                int(ticket.closed_by.id)
-                if not isinstance(ticket.closed_by, int)
-                else int(ticket.closed_by)
+        if application.closed_by is not None:
+            application.closed_by = (
+                int(application.closed_by.id)
+                if not isinstance(application.closed_by, int)
+                else int(application.closed_by)
             )
-        if ticket.deleted_by is not None:
-            ticket.deleted_by = (
-                int(ticket.deleted_by.id)
-                if not isinstance(ticket.deleted_by, int)
-                else int(ticket.deleted_by)
+        if application.deleted_by is not None:
+            application.deleted_by = (
+                int(application.deleted_by.id)
+                if not isinstance(application.deleted_by, int)
+                else int(application.deleted_by)
             )
-        if ticket.renamed_by is not None:
-            ticket.renamed_by = (
-                int(ticket.renamed_by.id)
-                if not isinstance(ticket.renamed_by, int)
-                else int(ticket.renamed_by)
+        if application.renamed_by is not None:
+            application.renamed_by = (
+                int(application.renamed_by.id)
+                if not isinstance(application.renamed_by, int)
+                else int(application.renamed_by)
             )
-        members = ticket.members
-        ticket.members = []
+        members = application.members
+        application.members = []
         for m in members:
-            ticket.members.append(int(m.id))
-        if ticket.created_at is not None:
-            ticket.created_at = float(datetime.datetime.timestamp(ticket.created_at))
-        if ticket.opened_at is not None:
-            ticket.opened_at = float(datetime.datetime.timestamp(ticket.opened_at))
-        if ticket.closed_at is not None:
-            ticket.closed_at = float(datetime.datetime.timestamp(ticket.closed_at))
-        if ticket.deleted_at is not None:
-            ticket.deleted_at = float(datetime.datetime.timestamp(ticket.deleted_at))
-        if ticket.renamed_at is not None:
-            ticket.renamed_at = float(datetime.datetime.timestamp(ticket.renamed_at))
-        if ticket.first_message is not None:
-            ticket.first_message = int(ticket.first_message.id)
-        json = ticket.__dict__
-        data = await cog.config.guild(guild).tickets.all()
+            application.members.append(int(m.id))
+        if application.created_at is not None:
+            application.created_at = float(datetime.datetime.timestamp(application.created_at))
+        if application.opened_at is not None:
+            application.opened_at = float(datetime.datetime.timestamp(application.opened_at))
+        if application.closed_at is not None:
+            application.closed_at = float(datetime.datetime.timestamp(application.closed_at))
+        if application.deleted_at is not None:
+            application.deleted_at = float(datetime.datetime.timestamp(application.deleted_at))
+        if application.renamed_at is not None:
+            application.renamed_at = float(datetime.datetime.timestamp(application.renamed_at))
+        if application.first_message is not None:
+            application.first_message = int(application.first_message.id)
+        json = application.__dict__
+        data = await cog.config.guild(guild).applications.all()
         data[str(channel.id)] = json
-        await cog.config.guild(guild).tickets.set(data)
+        await cog.config.guild(guild).applications.set(data)
         return data
 
-    async def create(ticket) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
+    async def create(application) -> typing.Any:  # typing_extensions.Self
+        config = await application.cog.get_config(application.guild, application.panel)
         logschannel = config["logschannel"]
-        overwrites = await utils().get_overwrites(ticket)
+        overwrites = await utils().get_overwrites(application)
         emoji_open = config["emoji_open"]
         ping_role = config["ping_role"]
-        ticket.id = config["last_nb"] + 1
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
-            author=ticket.created_by,
-            reason=_("Creating the ticket {ticket.id}.").format(ticket=ticket),
+        application.id = config["last_nb"] + 1
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
+            author=application.created_by,
+            reason=_("Creating the application {application.id}.").format(application=application),
         )
         try:
             to_replace = {
-                "ticket_id": str(ticket.id),
-                "owner_display_name": ticket.owner.display_name,
-                "owner_name": ticket.owner.name,
-                "owner_id": str(ticket.owner.id),
-                "guild_name": ticket.guild.name,
-                "guild_id": ticket.guild.id,
-                "bot_display_name": ticket.guild.me.display_name,
-                "bot_name": ticket.bot.user.name,
-                "bot_id": str(ticket.bot.user.id),
-                "shortdate": ticket.created_at.strftime("%m-%d"),
-                "longdate": ticket.created_at.strftime("%m-%d-%Y"),
-                "time": ticket.created_at.strftime("%I-%M-%p"),
+                "application_id": str(application.id),
+                "owner_display_name": application.owner.display_name,
+                "owner_name": application.owner.name,
+                "owner_id": str(application.owner.id),
+                "guild_name": application.guild.name,
+                "guild_id": application.guild.id,
+                "bot_display_name": application.guild.me.display_name,
+                "bot_name": application.bot.user.name,
+                "bot_id": str(application.bot.user.id),
+                "shortdate": application.created_at.strftime("%m-%d"),
+                "longdate": application.created_at.strftime("%m-%d-%Y"),
+                "time": application.created_at.strftime("%I-%M-%p"),
             }
             name = config["dynamic_channel_name"].format(**to_replace).replace(" ", "-")
-            ticket.channel = await ticket.guild.create_text_channel(
+            application.channel = await application.guild.create_text_channel(
                 name,
                 overwrites=overwrites,
                 category=config["category_open"],
-                topic=ticket.reason,
+                topic=application.reason,
                 reason=reason,
             )
         except (KeyError, AttributeError, discord.HTTPException):
-            name = f"{emoji_open}-ticket-{ticket.id}"
-            ticket.channel = await ticket.guild.create_text_channel(
+            name = f"{emoji_open}-application-{application.id}"
+            application.channel = await application.guild.create_text_channel(
                 name,
                 overwrites=overwrites,
                 category=config["category_open"],
-                topic=ticket.reason,
+                topic=application.reason,
                 reason=reason,
             )
         topic = _(
-            "🎟️ Ticket ID: {ticket.id}\n"
-            "🔥 Channel ID: {ticket.channel.id}\n"
-            "🕵️ Ticket created by: @{ticket.created_by.display_name} ({ticket.created_by.id})\n"
-            "☢️ Ticket reason: {ticket.reason}\n"
-            "👥 Ticket claimed by: Nobody."
-        ).format(ticket=ticket)
-        await ticket.channel.edit(topic=topic)
+            "🎟️ Application ID: {application.id}\n"
+            "🔥 Channel ID: {application.channel.id}\n"
+            "🕵️ Application created by: @{application.created_by.display_name} ({application.created_by.id})\n"
+            "☢️ Application reason: {application.reason}\n"
+            "👥 Application claimed by: Nobody."
+        ).format(application=application)
+        await application.channel.edit(topic=topic)
         if config["create_modlog"]:
-            await ticket.cog.create_modlog(ticket, "ticket_created", reason)
+            await application.cog.create_modlog(application, "application_created", reason)
         if CogsUtils().is_dpy2:
             view = Buttons(
                 timeout=None,
@@ -276,18 +276,18 @@ class Ticket:
                         "style": 2,
                         "label": _("Close"),
                         "emoji": "🔒",
-                        "custom_id": "close_ticket_button",
+                        "custom_id": "close_application_button",
                         "disabled": False,
                     },
                     {
                         "style": 2,
                         "label": _("Claim"),
                         "emoji": "🙋‍♂️",
-                        "custom_id": "claim_ticket_button",
+                        "custom_id": "claim_application_button",
                         "disabled": False,
                     },
                 ],
-                function=ticket.cog.on_button_interaction,
+                function=application.cog.on_button_interaction,
                 infinity=True,
             )
         else:
@@ -296,14 +296,14 @@ class Ticket:
                     style=ButtonStyle.grey,
                     label=_("Close"),
                     emoji="🔒",
-                    custom_id="close_ticket_button",
+                    custom_id="close_application_button",
                     disabled=False,
                 ),
                 Button(
                     style=ButtonStyle.grey,
                     label=_("Claim"),
                     emoji="🙋‍♂️",
-                    custom_id="claim_ticket_button",
+                    custom_id="claim_application_button",
                     disabled=False,
                 ),
             )
@@ -311,24 +311,24 @@ class Ticket:
             optionnal_ping = f" ||{ping_role.mention}||"
         else:
             optionnal_ping = ""
-        embed = await ticket.cog.get_embed_important(
-            ticket,
+        embed = await application.cog.get_embed_important(
+            application,
             False,
-            author=ticket.created_by,
-            title=_("Ticket Created"),
-            description=_("Thank you for creating a ticket on this server!"),
+            author=application.created_by,
+            title=_("Welcome to Rome!"),
+            description=_("Hello <@!{UserID}> and welcome to Rome! Please answer the following questions and an emplyee of <@&998658518758477954> will be with you shortly. \n1. Are you new to PnW? \n2. What was your previous alliance if you answered no to the first question? \n3. Do you owe money/resources to your previous alliance or any banks? \n4. Have you ever been kicked or asked to leave an alliance before? \n5. Do you agree to the membership agreement? \n6. Do you have any questions about Rome? \nLastly, please do the following things: `!verify [nation id]` `/verify nation_id: [nation id]` `/link nation: [nation link]`."),
         )
         if CogsUtils().is_dpy2:
-            ticket.first_message = await ticket.channel.send(
-                f"{ticket.created_by.mention}{optionnal_ping}",
+            application.first_message = await application.channel.send(
+                f"{application.created_by.mention}{optionnal_ping}",
                 embed=embed,
                 view=view,
                 allowed_mentions=discord.AllowedMentions(users=True, roles=True),
             )
-            ticket.cog.cogsutils.views.append(view)
+            application.cog.cogsutils.views.append(view)
         else:
-            ticket.first_message = await ticket.channel.send(
-                f"{ticket.created_by.mention}{optionnal_ping}",
+            application.first_message = await application.channel.send(
+                f"{application.created_by.mention}{optionnal_ping}",
                 embed=embed,
                 components=[buttons],
                 allowed_mentions=discord.AllowedMentions(users=True, roles=True),
@@ -338,113 +338,113 @@ class Ticket:
                 embed: discord.Embed = discord.Embed()
                 embed.title = "Custom Message"
                 to_replace = {
-                    "ticket_id": str(ticket.id),
-                    "owner_display_name": ticket.owner.display_name,
-                    "owner_name": ticket.owner.name,
-                    "owner_id": str(ticket.owner.id),
-                    "guild_name": ticket.guild.name,
-                    "guild_id": ticket.guild.id,
-                    "bot_display_name": ticket.guild.me.display_name,
-                    "bot_name": ticket.bot.user.name,
-                    "bot_id": str(ticket.bot.user.id),
-                    "shortdate": ticket.created_at.strftime("%m-%d"),
-                    "longdate": ticket.created_at.strftime("%m-%d-%Y"),
-                    "time": ticket.created_at.strftime("%I-%M-%p"),
+                    "application_id": str(application.id),
+                    "owner_display_name": application.owner.display_name,
+                    "owner_name": application.owner.name,
+                    "owner_id": str(application.owner.id),
+                    "guild_name": application.guild.name,
+                    "guild_id": application.guild.id,
+                    "bot_display_name": application.guild.me.display_name,
+                    "bot_name": application.bot.user.name,
+                    "bot_id": str(application.bot.user.id),
+                    "shortdate": application.created_at.strftime("%m-%d"),
+                    "longdate": application.created_at.strftime("%m-%d-%Y"),
+                    "time": application.created_at.strftime("%I-%M-%p"),
                 }
                 embed.description = config["custom_message"].format(**to_replace)
-                await ticket.channel.send(embed=embed)
+                await application.channel.send(embed=embed)
             except (KeyError, AttributeError, discord.HTTPException):
                 pass
         if logschannel is not None:
-            embed = await ticket.cog.get_embed_important(
-                ticket,
+            embed = await application.cog.get_embed_important(
+                application,
                 True,
-                author=ticket.created_by,
-                title=_("Ticket Created"),
-                description=_("The ticket was created by {ticket.created_by}.").format(
-                    ticket=ticket
+                author=application.created_by,
+                title=_("Application Created"),
+                description=_("The application was created by {application.created_by}.").format(
+                    application=application
                 ),
             )
             await logschannel.send(
-                _("Report on the creation of the ticket {ticket.id}.").format(ticket=ticket),
+                _("Report on the creation of the application {application.id}.").format(application=application),
                 embed=embed,
             )
-        if config["ticket_role"] is not None:
-            if ticket.owner:
+        if config["application_role"] is not None:
+            if application.owner:
                 try:
-                    await ticket.owner.add_roles(config["ticket_role"], reason=reason)
+                    await application.owner.add_roles(config["application_role"], reason=reason)
                 except discord.HTTPException:
                     pass
-        await ticket.cog.config.guild(ticket.guild).panels.set_raw(
-            ticket.panel, "last_nb", value=ticket.id
+        await application.cog.config.guild(application.guild).panels.set_raw(
+            application.panel, "last_nb", value=application.id
         )
-        await ticket.save()
-        return ticket
+        await application.save()
+        return application
 
-    async def export(ticket) -> typing.Optional[discord.File]:
-        if ticket.channel:
-            if ticket.cog.cogsutils.is_dpy2:
+    async def export(application) -> typing.Optional[discord.File]:
+        if application.channel:
+            if application.cog.cogsutils.is_dpy2:
                 transcript = await chat_exporter.export(
-                    channel=ticket.channel,
+                    channel=application.channel,
                     limit=None,
                     tz_info="UTC",
-                    guild=ticket.guild,
-                    bot=ticket.bot,
+                    guild=application.guild,
+                    bot=application.bot,
                 )
             else:
                 transcript = await chat_exporter.export(
-                    channel=ticket.channel, guild=ticket.guild, limit=None
+                    channel=application.channel, guild=application.guild, limit=None
                 )
             if transcript is not None:
                 transcript_file = discord.File(
                     io.BytesIO(transcript.encode()),
-                    filename=f"transcript-ticket-{ticket.panel}-{ticket.id}.html",
+                    filename=f"transcript-application-{application.panel}-{application.id}.html",
                 )
                 return transcript_file
         return None
 
     async def open(
-        ticket, author: typing.Optional[discord.Member] = None
+        application, author: typing.Optional[discord.Member] = None
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        config = await application.cog.get_config(application.guild, application.panel)
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=_("Opening the ticket {ticket.id}.").format(ticket=ticket),
+            reason=_("Opening the application {application.id}.").format(application=application),
         )
         logschannel = config["logschannel"]
         emoji_open = config["emoji_open"]
         emoji_close = config["emoji_close"]
-        ticket.status = "open"
-        ticket.opened_by = author
-        ticket.opened_at = datetime.datetime.now()
-        ticket.closed_by = None
-        ticket.closed_at = None
-        new_name = f"{ticket.channel.name}"
+        application.status = "open"
+        application.opened_by = author
+        application.opened_at = datetime.datetime.now()
+        application.closed_by = None
+        application.closed_at = None
+        new_name = f"{application.channel.name}"
         new_name = new_name.replace(f"{emoji_close}-", "", 1)
         new_name = f"{emoji_open}-{new_name}"
-        await ticket.channel.edit(name=new_name, category=config["category_open"], reason=reason)
-        if ticket.logs_messages:
-            embed = await ticket.cog.get_embed_action(
-                ticket, author=ticket.opened_by, action=_("Ticket Opened")
+        await application.channel.edit(name=new_name, category=config["category_open"], reason=reason)
+        if application.logs_messages:
+            embed = await application.cog.get_embed_action(
+                application, author=application.opened_by, action=_("Application Opened")
             )
-            await ticket.channel.send(embed=embed)
+            await application.channel.send(embed=embed)
             if logschannel is not None:
-                embed = await ticket.cog.get_embed_important(
-                    ticket,
+                embed = await application.cog.get_embed_important(
+                    application,
                     True,
-                    author=ticket.opened_by,
-                    title=_("Ticket Opened"),
-                    description=_("The ticket was opened by {ticket.opened_by}.").format(
-                        ticket=ticket
+                    author=application.opened_by,
+                    title=_("Application Opened"),
+                    description=_("The application was opened by {application.opened_by}.").format(
+                        application=application
                     ),
                 )
                 await logschannel.send(
-                    _("Report on the close of the ticket {ticket.id}.").format(ticket=ticket),
+                    _("Report on the close of the application {application.id}.").format(application=application),
                     embed=embed,
                 )
-        if ticket.first_message is not None:
+        if application.first_message is not None:
             try:
                 if CogsUtils().is_dpy2:
                     view = Buttons(
@@ -454,88 +454,88 @@ class Ticket:
                                 "style": 2,
                                 "label": _("Close"),
                                 "emoji": "🔒",
-                                "custom_id": "close_ticket_button",
+                                "custom_id": "close_application_button",
                                 "disabled": False,
                             },
                             {
                                 "style": 2,
                                 "label": _("Claim"),
                                 "emoji": "🙋‍♂️",
-                                "custom_id": "claim_ticket_button",
+                                "custom_id": "claim_application_button",
                                 "disabled": False,
                             },
                         ],
-                        function=ticket.cog.on_button_interaction,
+                        function=application.cog.on_button_interaction,
                         infinity=True,
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(view=view)
+                    await application.first_message.edit(view=view)
                 else:
                     buttons = ActionRow(
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Close"),
                             emoji="🔒",
-                            custom_id="close_ticket_button",
+                            custom_id="close_application_button",
                             disabled=False,
                         ),
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Claim"),
                             emoji="🙋‍♂️",
-                            custom_id="claim_ticket_button",
+                            custom_id="claim_application_button",
                             disabled=False,
                         ),
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(components=[buttons])
+                    await application.first_message.edit(components=[buttons])
             except discord.HTTPException:
                 pass
-        await ticket.save()
-        return ticket
+        await application.save()
+        return application
 
     async def close(
-        ticket, author: typing.Optional[discord.Member] = None
+        application, author: typing.Optional[discord.Member] = None
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        config = await application.cog.get_config(application.guild, application.panel)
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=f"Closing the ticket {ticket.id}.",
+            reason=f"Closing the application {application.id}.",
         )
         logschannel = config["logschannel"]
         emoji_open = config["emoji_open"]
         emoji_close = config["emoji_close"]
-        ticket.status = "close"
-        ticket.closed_by = author
-        ticket.closed_at = datetime.datetime.now()
-        new_name = f"{ticket.channel.name}"
+        application.status = "close"
+        application.closed_by = author
+        application.closed_at = datetime.datetime.now()
+        new_name = f"{application.channel.name}"
         new_name = new_name.replace(f"{emoji_open}-", "", 1)
         new_name = f"{emoji_close}-{new_name}"
-        await ticket.channel.edit(name=new_name, category=config["category_close"], reason=reason)
-        if ticket.logs_messages:
-            embed = await ticket.cog.get_embed_action(
-                ticket, author=ticket.closed_by, action="Ticket Closed"
+        await application.channel.edit(name=new_name, category=config["category_close"], reason=reason)
+        if application.logs_messages:
+            embed = await application.cog.get_embed_action(
+                application, author=application.closed_by, action="Application Closed"
             )
-            await ticket.channel.send(embed=embed)
+            await application.channel.send(embed=embed)
             if logschannel is not None:
-                embed = await ticket.cog.get_embed_important(
-                    ticket,
+                embed = await application.cog.get_embed_important(
+                    application,
                     True,
-                    author=ticket.closed_by,
-                    title="Ticket Closed",
-                    description=f"The ticket was closed by {ticket.closed_by}.",
+                    author=application.closed_by,
+                    title="Application Closed",
+                    description=f"The application was closed by {application.closed_by}.",
                 )
                 await logschannel.send(
-                    _("Report on the close of the ticket {ticket.id}."),
+                    _("Report on the close of the application {application.id}."),
                     embed=embed,
                 )
-        if ticket.first_message is not None:
+        if application.first_message is not None:
             try:
                 if CogsUtils().is_dpy2:
                     view = Buttons(
@@ -545,123 +545,123 @@ class Ticket:
                                 "style": 2,
                                 "label": _("Close"),
                                 "emoji": "🔒",
-                                "custom_id": "close_ticket_button",
+                                "custom_id": "close_application_button",
                                 "disabled": True,
                             },
                             {
                                 "style": 2,
                                 "label": _("Claim"),
                                 "emoji": "🙋‍♂️",
-                                "custom_id": "claim_ticket_button",
+                                "custom_id": "claim_application_button",
                                 "disabled": True,
                             },
                         ],
-                        function=ticket.cog.on_button_interaction,
+                        function=application.cog.on_button_interaction,
                         infinity=True,
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(view=view)
+                    await application.first_message.edit(view=view)
                 else:
                     buttons = ActionRow(
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Close"),
                             emoji="🔒",
-                            custom_id="close_ticket_button",
+                            custom_id="close_application_button",
                             disabled=True,
                         ),
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Claim"),
                             emoji="🙋‍♂️",
-                            custom_id="claim_ticket_button",
+                            custom_id="claim_application_button",
                             disabled=True,
                         ),
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(components=[buttons])
+                    await application.first_message.edit(components=[buttons])
             except discord.HTTPException:
                 pass
-        await ticket.save()
-        return ticket
+        await application.save()
+        return application
 
     async def rename(
-        ticket, new_name: str, author: typing.Optional[discord.Member] = None
+        application, new_name: str, author: typing.Optional[discord.Member] = None
     ) -> typing.Any:  # typing_extensions.Self
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
             reason=_(
-                "Renaming the ticket {ticket.id}. (`{ticket.channel.name}` to `{new_name}`)"
-            ).format(ticket=ticket, new_name=new_name),
+                "Renaming the application {application.id}. (`{application.channel.name}` to `{new_name}`)"
+            ).format(application=application, new_name=new_name),
         )
-        await ticket.channel.edit(name=new_name, reason=reason)
+        await application.channel.edit(name=new_name, reason=reason)
         if author is not None:
-            ticket.renamed_by = author
-            ticket.renamed_at = datetime.datetime.now()
-            if ticket.logs_messages:
-                embed = await ticket.cog.get_embed_action(
-                    ticket,
-                    author=ticket.renamed_by,
-                    action=_("Ticket Renamed."),
+            application.renamed_by = author
+            application.renamed_at = datetime.datetime.now()
+            if application.logs_messages:
+                embed = await application.cog.get_embed_action(
+                    application,
+                    author=application.renamed_by,
+                    action=_("Application Renamed."),
                 )
-                await ticket.channel.send(embed=embed)
-            await ticket.save()
-        return ticket
+                await application.channel.send(embed=embed)
+            await application.save()
+        return application
 
     async def delete(
-        ticket, author: typing.Optional[discord.Member] = None
+        application, author: typing.Optional[discord.Member] = None
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
+        config = await application.cog.get_config(application.guild, application.panel)
         logschannel = config["logschannel"]
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=_("Deleting the ticket {ticket.id}.").format(ticket=ticket),
+            reason=_("Deleting the application {application.id}.").format(application=application),
         )
-        ticket.deleted_by = author
-        ticket.deleted_at = datetime.datetime.now()
-        if ticket.logs_messages:
+        application.deleted_by = author
+        application.deleted_at = datetime.datetime.now()
+        if application.logs_messages:
             if logschannel is not None:
-                embed = await ticket.cog.get_embed_important(
-                    ticket,
+                embed = await application.cog.get_embed_important(
+                    application,
                     True,
-                    author=ticket.deleted_by,
-                    title=_("Ticket Deleted"),
-                    description=_("The ticket was deleted by {ticket.deleted_by}.").format(
-                        ticket=ticket
+                    author=application.deleted_by,
+                    title=_("Application Deleted"),
+                    description=_("The application was deleted by {application.deleted_by}.").format(
+                        application=application
                     ),
                 )
                 try:
-                    if ticket.cog.cogsutils.is_dpy2:
+                    if application.cog.cogsutils.is_dpy2:
                         transcript = await chat_exporter.export(
-                            channel=ticket.channel,
+                            channel=application.channel,
                             limit=None,
                             tz_info="UTC",
-                            guild=ticket.guild,
-                            bot=ticket.bot,
+                            guild=application.guild,
+                            bot=application.bot,
                         )
                     else:
                         transcript = await chat_exporter.export(
-                            channel=ticket.channel, guild=ticket.guild, limit=None
+                            channel=application.channel, guild=application.guild, limit=None
                         )
                 except AttributeError:
                     transcript = None
                 if transcript is not None:
                     file = discord.File(
                         io.BytesIO(transcript.encode()),
-                        filename=f"transcript-ticket-{ticket.id}.html",
+                        filename=f"transcript-application-{application.id}.html",
                     )
                 else:
                     file = None
                 message = await logschannel.send(
-                    _("Report on the deletion of the ticket {ticket.id}.").format(ticket=ticket),
+                    _("Report on the deletion of the application {application.id}.").format(application=application),
                     embed=embed,
                     file=file,
                 )
@@ -673,36 +673,36 @@ class Ticket:
                     colour=discord.Colour.green(),
                 )
                 await logschannel.send(embed=embed)
-        await ticket.channel.delete(reason=reason)
-        data = await ticket.cog.config.guild(ticket.guild).tickets.all()
+        await application.channel.delete(reason=reason)
+        data = await application.cog.config.guild(application.guild).applications.all()
         try:
-            del data[str(ticket.channel.id)]
+            del data[str(application.channel.id)]
         except KeyError:
             pass
-        await ticket.cog.config.guild(ticket.guild).tickets.set(data)
-        return ticket
+        await application.cog.config.guild(application.guild).applications.set(data)
+        return application
 
-    async def claim_ticket(
-        ticket, member: discord.Member, author: typing.Optional[discord.Member] = None
+    async def claim_application(
+        application, member: discord.Member, author: typing.Optional[discord.Member] = None
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        config = await application.cog.get_config(application.guild, application.panel)
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=_("Claiming the ticket {ticket.id}.").format(ticket=ticket),
+            reason=_("Claiming the application {application.id}.").format(application=application),
         )
         if member.bot:
-            raise commands.UserFeedbackCheckFailure(_("A bot cannot claim a ticket."))
-        ticket.claim = member
+            raise commands.UserFeedbackCheckFailure(_("A bot cannot claim an application."))
+        application.claim = member
         topic = _(
-            "🎟️ Ticket ID: {ticket.id}\n"
-            "🔥 Channel ID: {ticket.channel.id}\n"
-            "🕵️ Ticket created by: @{ticket.created_by.display_name} ({ticket.created_by.id})\n"
-            "☢️ Ticket reason: {ticket.reason}\n"
-            "👥 Ticket claimed by: @{ticket.claim.display_name} (@{ticket.claim.id})."
-        ).format(ticket=ticket)
-        overwrites = ticket.channel.overwrites
+            "🎟️ Application ID: {application.id}\n"
+            "🔥 Channel ID: {application.channel.id}\n"
+            "🕵️ Application created by: @{application.created_by.display_name} ({application.created_by.id})\n"
+            "☢️ Application reason: {application.reason}\n"
+            "👥 Application claimed by: @{application.claim.display_name} (@{application.claim.id})."
+        ).format(application=application)
+        overwrites = application.channel.overwrites
         overwrites[member] = discord.PermissionOverwrite(
             attach_files=True,
             read_message_history=True,
@@ -710,16 +710,16 @@ class Ticket:
             send_messages=True,
             view_channel=True,
         )
-        if config["support_role"] is not None:
-            overwrites[config["support_role"]] = discord.PermissionOverwrite(
+        if config["ia_role"] is not None:
+            overwrites[config["ia_role"]] = discord.PermissionOverwrite(
                 attach_files=False,
                 read_message_history=True,
                 read_messages=True,
                 send_messages=False,
                 view_channel=True,
             )
-        await ticket.channel.edit(topic=topic, overwrites=overwrites, reason=reason)
-        if ticket.first_message is not None:
+        await application.channel.edit(topic=topic, overwrites=overwrites, reason=reason)
+        if application.first_message is not None:
             try:
                 if CogsUtils().is_dpy2:
                     view = Buttons(
@@ -729,81 +729,81 @@ class Ticket:
                                 "style": 2,
                                 "label": _("Close"),
                                 "emoji": "🔒",
-                                "custom_id": "close_ticket_button",
-                                "disabled": False if ticket.status == "open" else True,
+                                "custom_id": "close_application_button",
+                                "disabled": False if application.status == "open" else True,
                             },
                             {
                                 "style": 2,
                                 "label": _("Claim"),
                                 "emoji": "🙋‍♂️",
-                                "custom_id": "claim_ticket_button",
+                                "custom_id": "claim_application_button",
                                 "disabled": True,
                             },
                         ],
-                        function=ticket.cog.on_button_interaction,
+                        function=application.cog.on_button_interaction,
                         infinity=True,
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(view=view)
+                    await application.first_message.edit(view=view)
                 else:
                     buttons = ActionRow(
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Close"),
                             emoji="🔒",
-                            custom_id="close_ticket_button",
-                            disabled=False if ticket.status == "open" else True,
+                            custom_id="close_application_button",
+                            disabled=False if application.status == "open" else True,
                         ),
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Claim"),
                             emoji="🙋‍♂️",
-                            custom_id="claim_ticket_button",
+                            custom_id="claim_application_button",
                             disabled=True,
                         ),
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(components=[buttons])
+                    await application.first_message.edit(components=[buttons])
             except discord.HTTPException:
                 pass
-        await ticket.save()
-        return ticket
+        await application.save()
+        return application
 
-    async def unclaim_ticket(
-        ticket, member: discord.Member, author: typing.Optional[discord.Member] = None
+    async def unclaim_application(
+        application, member: discord.Member, author: typing.Optional[discord.Member] = None
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        config = await application.cog.get_config(application.guild, application.panel)
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=_("Claiming the ticket {ticket.id}.").format(ticket=ticket),
+            reason=_("Claiming the application {application.id}.").format(application=application),
         )
-        ticket.claim = None
+        application.claim = None
         topic = _(
-            "🎟️ Ticket ID: {ticket.id}\n"
-            "🔥 Channel ID: {ticket.channel.id}\n"
-            "🕵️ Ticket created by: @{ticket.created_by.display_name} ({ticket.created_by.id})\n"
-            "☢️ Ticket reason: {ticket.reason}\n"
-            "👥 Ticket claimed by: Nobody."
-        ).format(ticket=ticket)
-        await ticket.channel.edit(topic=topic)
-        if config["support_role"] is not None:
-            overwrites = ticket.channel.overwrites
-            overwrites[config["support_role"]] = discord.PermissionOverwrite(
+            "🎟️ Application ID: {application.id}\n"
+            "🔥 Channel ID: {application.channel.id}\n"
+            "🕵️ Application created by: @{application.created_by.display_name} ({application.created_by.id})\n"
+            "☢️ Application reason: {application.reason}\n"
+            "👥 Application claimed by: Nobody."
+        ).format(application=application)
+        await application.channel.edit(topic=topic)
+        if config["ia_role"] is not None:
+            overwrites = application.channel.overwrites
+            overwrites[config["ia_role"]] = discord.PermissionOverwrite(
                 attach_files=True,
                 read_message_history=True,
                 read_messages=True,
                 send_messages=True,
                 view_channel=True,
             )
-            await ticket.channel.edit(overwrites=overwrites, reason=reason)
-        await ticket.channel.set_permissions(member, overwrite=None, reason=reason)
-        if ticket.first_message is not None:
+            await application.channel.edit(overwrites=overwrites, reason=reason)
+        await application.channel.set_permissions(member, overwrite=None, reason=reason)
+        if application.first_message is not None:
             try:
                 if CogsUtils().is_dpy2:
                     view = Buttons(
@@ -813,75 +813,75 @@ class Ticket:
                                 "style": 2,
                                 "label": _("Close"),
                                 "emoji": "🔒",
-                                "custom_id": "close_ticket_button",
-                                "disabled": False if ticket.status == "open" else True,
+                                "custom_id": "close_application_button",
+                                "disabled": False if application.status == "open" else True,
                             },
                             {
                                 "style": 2,
                                 "label": _("Claim"),
                                 "emoji": "🙋‍♂️",
-                                "custom_id": "claim_ticket_button",
+                                "custom_id": "claim_application_button",
                                 "disabled": True,
                             },
                         ],
-                        function=ticket.cog.on_button_interaction,
+                        function=application.cog.on_button_interaction,
                         infinity=True,
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(view=view)
+                    await application.first_message.edit(view=view)
                 else:
                     buttons = ActionRow(
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Close"),
                             emoji="🔒",
-                            custom_id="close_ticket_button",
-                            disabled=False if ticket.status == "open" else True,
+                            custom_id="close_application_button",
+                            disabled=False if application.status == "open" else True,
                         ),
                         Button(
                             style=ButtonStyle.grey,
                             label=_("Claim"),
                             emoji="🙋‍♂️",
-                            custom_id="claim_ticket_button",
+                            custom_id="claim_application_button",
                             disabled=False,
                         ),
                     )
-                    ticket.first_message = await ticket.channel.fetch_message(
-                        int(ticket.first_message.id)
+                    application.first_message = await application.channel.fetch_message(
+                        int(application.first_message.id)
                     )
-                    await ticket.first_message.edit(components=[buttons])
+                    await application.first_message.edit(components=[buttons])
             except discord.HTTPException:
                 pass
-        await ticket.save()
-        return ticket
+        await application.save()
+        return application
 
     async def change_owner(
-        ticket, member: discord.Member, author: typing.Optional[discord.Member] = None
+        application, member: discord.Member, author: typing.Optional[discord.Member] = None
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        config = await application.cog.get_config(application.guild, application.panel)
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=_("Changing owner of the ticket {ticket.id}.").format(ticket=ticket),
+            reason=_("Changing owner of the application {application.id}.").format(application=application),
         )
         if member.bot:
             raise commands.UserFeedbackCheckFailure(
-                _("You cannot transfer ownership of a ticket to a bot.")
+                _("You cannot transfer ownership of an application to a bot.")
             )
-        if not isinstance(ticket.owner, int):
-            if config["ticket_role"] is not None:
+        if not isinstance(application.owner, int):
+            if config["application_role"] is not None:
                 try:
-                    ticket.owner.remove_roles(config["ticket_role"], reason=reason)
+                    application.owner.remove_roles(config["application_role"], reason=reason)
                 except discord.HTTPException:
                     pass
-            ticket.remove_member(ticket.owner, author=None)
-            ticket.add_member(ticket.owner, author=None)
-        ticket.owner = member
-        ticket.remove_member(ticket.owner, author=None)
-        overwrites = ticket.channel.overwrites
+            application.remove_member(application.owner, author=None)
+            application.add_member(application.owner, author=None)
+        application.owner = member
+        application.remove_member(application.owner, author=None)
+        overwrites = application.channel.overwrites
         overwrites[member] = discord.PermissionOverwrite(
             attach_files=True,
             read_message_history=True,
@@ -889,64 +889,64 @@ class Ticket:
             send_messages=True,
             view_channel=True,
         )
-        await ticket.channel.edit(overwrites=overwrites, reason=reason)
-        if config["ticket_role"] is not None:
+        await application.channel.edit(overwrites=overwrites, reason=reason)
+        if config["application_role"] is not None:
             try:
-                ticket.owner.add_roles(config["ticket_role"], reason=reason)
+                application.owner.add_roles(config["application_role"], reason=reason)
             except discord.HTTPException:
                 pass
-        if ticket.logs_messages:
-            embed = await ticket.cog.get_embed_action(
-                ticket, author=author, action=_("Owner Modified.")
+        if application.logs_messages:
+            embed = await application.cog.get_embed_action(
+                application, author=author, action=_("Owner Modified.")
             )
-            await ticket.channel.send(embed=embed)
-        await ticket.save()
-        return ticket
+            await application.channel.send(embed=embed)
+        await application.save()
+        return application
 
     async def add_member(
-        ticket,
+        application,
         members: typing.List[discord.Member],
         author: typing.Optional[discord.Member] = None,
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        config = await application.cog.get_config(application.guild, application.panel)
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=_("Adding a member to the ticket {ticket.id}.").format(ticket=ticket),
+            reason=_("Adding a member to the application {application.id}.").format(application=application),
         )
-        if config["admin_role"] is not None:
-            admin_role_members = config["admin_role"].members
+        if config["gov_role"] is not None:
+            gov_role_members = config["gov_role"].members
         else:
-            admin_role_members = []
-        overwrites = ticket.channel.overwrites
+            gov_role_members = []
+        overwrites = application.channel.overwrites
         for member in members:
             if author is not None:
                 if member.bot:
                     raise commands.UserFeedbackCheckFailure(
-                        _("You cannot add a bot to a ticket. ({member})").format(member=member)
+                        _("You cannot add a bot to an application. ({member})").format(member=member)
                     )
-                if not isinstance(ticket.owner, int):
-                    if member == ticket.owner:
+                if not isinstance(application.owner, int):
+                    if member == application.owner:
                         raise commands.UserFeedbackCheckFailure(
                             _(
-                                "This member is already the owner of this ticket. ({member})"
+                                "This member is already the owner of this application. ({member})"
                             ).format(member=member)
                         )
-                if member in admin_role_members:
+                if member in gov_role_members:
                     raise commands.UserFeedbackCheckFailure(
                         _(
-                            "This member is an administrator for the ticket system. They will always have access to the ticket anyway. ({member})"
+                            "This member is an administrator for the application system. They will always have access to the application anyway. ({member})"
                         ).format(member=member)
                     )
-                if member in ticket.members:
+                if member in application.members:
                     raise commands.UserFeedbackCheckFailure(
-                        _("This member already has access to this ticket. ({member})").format(
+                        _("This member already has access to this application. ({member})").format(
                             member=member
                         )
                     )
-            if member not in ticket.members:
-                ticket.members.append(member)
+            if member not in application.members:
+                application.members.append(member)
             overwrites[member] = discord.PermissionOverwrite(
                 attach_files=True,
                 read_message_history=True,
@@ -954,59 +954,59 @@ class Ticket:
                 send_messages=True,
                 view_channel=True,
             )
-        await ticket.channel.edit(overwrites=overwrites, reason=reason)
-        await ticket.save()
-        return ticket
+        await application.channel.edit(overwrites=overwrites, reason=reason)
+        await application.save()
+        return application
 
     async def remove_member(
-        ticket,
+        application,
         members: typing.List[discord.Member],
         author: typing.Optional[discord.Member] = None,
     ) -> typing.Any:  # typing_extensions.Self
-        config = await ticket.cog.get_config(ticket.guild, ticket.panel)
-        reason = await ticket.cog.get_audit_reason(
-            guild=ticket.guild,
-            panel=ticket.panel,
+        config = await application.cog.get_config(application.guild, application.panel)
+        reason = await application.cog.get_audit_reason(
+            guild=application.guild,
+            panel=application.panel,
             author=author,
-            reason=_("Removing a member to the ticket {ticket.id}.").format(ticket=ticket),
+            reason=_("Removing a member to the application {application.id}.").format(application=application),
         )
-        if config["admin_role"] is not None:
-            admin_role_members = config["admin_role"].members
+        if config["gov_role"] is not None:
+            gov_role_members = config["gov_role"].members
         else:
-            admin_role_members = []
-        if config["support_role"] is not None:
-            support_role_members = config["support_role"].members
+            gov_role_members = []
+        if config["ia_role"] is not None:
+            ia_role_members = config["ia_role"].members
         else:
-            support_role_members = []
+            ia_role_members = []
         for member in members:
             if author is not None:
                 if member.bot:
                     raise commands.UserFeedbackCheckFailure(
-                        _("You cannot remove a bot to a ticket ({member}).").format(member=member)
+                        _("You cannot remove a bot to an application ({member}).").format(member=member)
                     )
-                if not isinstance(ticket.owner, int):
-                    if member == ticket.owner:
+                if not isinstance(application.owner, int):
+                    if member == application.owner:
                         raise commands.UserFeedbackCheckFailure(
-                            _("You cannot remove the owner of this ticket. ({member})").format(
+                            _("You cannot remove the owner of this application. ({member})").format(
                                 member=member
                             )
                         )
-                if member in admin_role_members:
+                if member in gov_role_members:
                     raise commands.UserFeedbackCheckFailure(
                         _(
-                            "This member is an administrator for the ticket system. They will always have access to the ticket. ({member})"
+                            "This member is an administrator for the application system. They will always have access to the application. ({member})"
                         ).format(member=member)
                     )
-                if member not in ticket.members and member not in support_role_members:
+                if member not in application.members and member not in ia_role_members:
                     raise commands.UserFeedbackCheckFailure(
                         _(
-                            "This member is not in the list of those authorised to access the ticket. ({member})"
+                            "This member is not in the list of those authorised to access the application. ({member})"
                         ).format(member=member)
                     )
-            if member in ticket.members:
-                ticket.members.remove(member)
-            if member in support_role_members:
-                overwrites = ticket.channel.overwrites
+            if member in application.members:
+                application.members.remove(member)
+            if member in ia_role_members:
+                overwrites = application.channel.overwrites
                 overwrites[member] = discord.PermissionOverwrite(
                     attach_files=False,
                     read_message_history=False,
@@ -1014,8 +1014,8 @@ class Ticket:
                     send_messages=False,
                     view_channel=False,
                 )
-                await ticket.channel.edit(overwrites=overwrites, reason=reason)
+                await application.channel.edit(overwrites=overwrites, reason=reason)
             else:
-                await ticket.channel.set_permissions(member, overwrite=None, reason=reason)
-        await ticket.save()
-        return ticket
+                await application.channel.set_permissions(member, overwrite=None, reason=reason)
+        await application.save()
+        return application

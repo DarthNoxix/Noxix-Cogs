@@ -14,7 +14,7 @@ from .utils import EmojiLabelDescriptionValueConverter
 if CogsUtils().is_dpy2:  # To remove
     setattr(commands, "Literal", typing.Literal)
 
-_ = Translator("TicketTool", __file__)
+_ = Translator("ApplicationTool", __file__)
 
 if CogsUtils().is_dpy2:
     from functools import partial
@@ -30,7 +30,7 @@ class PanelConverter(commands.Converter):
     async def convert(self, ctx: commands.Context, argument: str):
         if len(argument) > 10:
             raise commands.BadArgument(_("This panel does not exist."))
-        panels = await ctx.bot.get_cog("TicketTool").config.guild(ctx.guild).panels()
+        panels = await ctx.bot.get_cog("ApplicationTool").config.guild(ctx.guild).panels()
         if argument.lower() not in panels:
             raise commands.BadArgument(_("This panel does not exist."))
         return argument.lower()
@@ -40,9 +40,9 @@ class PanelConverter(commands.Converter):
 class settings(commands.Cog):
     @commands.guild_only()
     @commands.admin_or_permissions(administrator=True)
-    @hybrid_group(name="settickettool", aliases=["tickettoolset"])
+    @hybrid_group(name="setapplicationtool", aliases=["applicationtoolset"])
     async def configuration(self, ctx: commands.Context) -> None:
-        """Configure TicketTool for your server."""
+        """Configure ApplicationTool for your server."""
         pass
 
     @configuration.command(name="message")
@@ -54,11 +54,11 @@ class settings(commands.Cog):
         message: typing.Optional[discord.ext.commands.converter.MessageConverter],
         reason_options: commands.Greedy[EmojiLabelDescriptionValueConverter],
     ) -> None:
-        """Send a message with a button to open a ticket or dropdown with possible reasons.
+        """Send a message with a button to open an application or dropdown with possible reasons.
 
         Example:
-        `[p]setticket message #general "🐛|Report a bug|If you find a bug, report it here.|bug" "⚠️|Report a user|If you find a malicious user, report it here.|user"`
-        `[p]setticket 1234567890-0987654321`
+        `[p]setapplication message #general "🐛|Report a bug|If you find a bug, report it here.|bug" "⚠️|Report a user|If you find a malicious user, report it here.|user"`
+        `[p]setapplication 1234567890-0987654321`
         """
         if channel is None:
             channel = ctx.channel
@@ -95,9 +95,9 @@ class settings(commands.Cog):
                     buttons=[
                         {
                             "style": 2,
-                            "label": _("Create ticket"),
+                            "label": _("Create application"),
                             "emoji": "🎟️",
-                            "custom_id": "create_ticket_button",
+                            "custom_id": "create_application_button",
                             "disabled": False,
                         }
                     ],
@@ -150,7 +150,7 @@ class settings(commands.Cog):
                     options=all_options,
                     function=self.on_dropdown_interaction,
                     infinity=True,
-                    custom_id="create_ticket_dropdown",
+                    custom_id="create_application_dropdown",
                 )
                 if message is None:
                     message = await channel.send(embed=embed, view=view)
@@ -174,9 +174,9 @@ class settings(commands.Cog):
                 button = ActionRow(
                     Button(
                         style=ButtonStyle.grey,
-                        label=_("Create ticket"),
+                        label=_("Create application"),
                         emoji="🎟️",
-                        custom_id="create_ticket_button",
+                        custom_id="create_application_button",
                         disabled=False,
                     )
                 )
@@ -220,8 +220,8 @@ class settings(commands.Cog):
                             )
                         )
                 dropdown = SelectMenu(
-                    custom_id="create_ticket_dropdown",
-                    placeholder=_("Choose the reason for open a ticket."),
+                    custom_id="create_application_dropdown",
+                    placeholder=_("Choose the reason for open an application."),
                     min_values=0,
                     max_values=1,
                     options=all_options,

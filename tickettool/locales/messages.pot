@@ -11,83 +11,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: redgettext 3.4.2\n"
 
-#: tickettool\settings.py:34 tickettool\settings.py:37
-#: tickettool\tickettool.py:490 tickettool\tickettool.py:493
-#: tickettool\tickettool.py:508
+#: applicationtool\settings.py:34 applicationtool\settings.py:37
+#: applicationtool\applicationtool.py:490 applicationtool\applicationtool.py:493
+#: applicationtool\applicationtool.py:508
 msgid "This panel does not exist."
 msgstr ""
 
-#: tickettool\settings.py:53
+#: applicationtool\settings.py:53
 #, docstring
 msgid "Create a new panel with defaults settings."
 msgstr ""
 
-#: tickettool\settings.py:55 tickettool\settings.py:67
-#: tickettool\settings.py:109
+#: applicationtool\settings.py:55 applicationtool\settings.py:67
+#: applicationtool\settings.py:109
 msgid "The name of a panel must be less than or equal to 10 characters."
 msgstr ""
 
-#: tickettool\settings.py:59 tickettool\settings.py:71
+#: applicationtool\settings.py:59 applicationtool\settings.py:71
 msgid "This panel already exists."
 msgstr ""
 
-#: tickettool\settings.py:65 tickettool\settings.py:107
+#: applicationtool\settings.py:65 applicationtool\settings.py:107
 #, docstring
 msgid "Clone an existing panel with his settings."
 msgstr ""
 
-#: tickettool\settings.py:78
+#: applicationtool\settings.py:78
 #, docstring
 msgid "Remove an existing panel."
 msgstr ""
 
-#: tickettool\settings.py:82
+#: applicationtool\settings.py:82
 msgid "Do you really want to remove this panel?"
 msgstr ""
 
-#: tickettool\settings.py:85
+#: applicationtool\settings.py:85
 msgid ""
-"All tickets associated with this panel will be removed from the Config, but "
-"the channels will still exist. Commands related to the tickets will no "
+"All applications associated with this panel will be removed from the Config, but "
+"the channels will still exist. Commands related to the applications will no "
 "longer work."
 msgstr ""
 
-#: tickettool\settings.py:113
+#: applicationtool\settings.py:113
 msgid "A panel with this name already exists."
 msgstr ""
 
-#: tickettool\settings.py:131
+#: applicationtool\settings.py:131
 #, docstring
 msgid "List the existing panels."
 msgstr ""
 
-#: tickettool\settings.py:139
+#: applicationtool\settings.py:139
 #, docstring
 msgid ""
-"Enable or disable Ticket System\n"
+"Enable or disable Application System\n"
 "\n"
 "        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:151
+#: applicationtool\settings.py:151
 msgid ""
-"You cannot enable the ticket system on this server if you have not configured the following options:\n"
-"- The category of open tickets : `{ctx.prefix}setticket categoryopen <category>`\n"
-"- The category of close tickets : `{ctx.prefix}setticket categoryclose <category>`\n"
-"- The admin role has full access to the tickets : `{ctx.prefix}setticket adminrole <role>`\n"
+"You cannot enable the application system on this server if you have not configured the following options:\n"
+"- The category of open applications : `{ctx.prefix}setapplication categoryopen <category>`\n"
+"- The category of close applications : `{ctx.prefix}setapplication categoryclose <category>`\n"
+"- The admin role has full access to the applications : `{ctx.prefix}setapplication adminrole <role>`\n"
 "All other parameters are optional or have default values that will be used."
 msgstr ""
 
-#: tickettool\settings.py:163
-msgid "Ticket System is already set on {state}."
+#: applicationtool\settings.py:163
+msgid "Application System is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:167
-msgid "Ticket System state registered: {state}."
+#: applicationtool\settings.py:167
+msgid "Application System state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:176
+#: applicationtool\settings.py:176
 #, docstring
 msgid ""
 "Set a channel where events are registered.\n"
@@ -97,161 +97,161 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:183
+#: applicationtool\settings.py:183
 msgid "Logging channel removed."
 msgstr ""
 
-#: tickettool\settings.py:198
+#: applicationtool\settings.py:198
 msgid ""
 "The bot does not have at least one of the following permissions in this "
 "channel: `embed_links`, `read_messages`, `read_message_history`, "
 "`send_messages`, `attach_files`."
 msgstr ""
 
-#: tickettool\settings.py:205
+#: applicationtool\settings.py:205
 msgid "Logging channel registered: {channel.mention}."
 msgstr ""
 
-#: tickettool\settings.py:211
+#: applicationtool\settings.py:211
 #, docstring
 msgid ""
-"Set a category where open tickets are created.\n"
+"Set a category where open applications are created.\n"
 "\n"
 "        ``category``: Category.\n"
 "        You can also use \"None\" if you wish to remove the open category.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:218
+#: applicationtool\settings.py:218
 msgid "Category Open removed."
 msgstr ""
 
-#: tickettool\settings.py:222
+#: applicationtool\settings.py:222
 msgid "Category Open registered: {category.name}."
 msgstr ""
 
-#: tickettool\settings.py:228
+#: applicationtool\settings.py:228
 #, docstring
 msgid ""
-"Set a category where close tickets are created.\n"
+"Set a category where close applications are created.\n"
 "\n"
 "        ``category``: Category.\n"
 "        You can also use \"None\" if you wish to remove the close category.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:235
+#: applicationtool\settings.py:235
 msgid "Category Close removed."
 msgstr ""
 
-#: tickettool\settings.py:239
+#: applicationtool\settings.py:239
 msgid "Category Close registered: {category.name}."
 msgstr ""
 
-#: tickettool\settings.py:245
+#: applicationtool\settings.py:245
 #, docstring
 msgid ""
-"Set a role for administrators of the ticket system.\n"
+"Set a role for administrators of the application system.\n"
 "\n"
 "        ``role``: Role.\n"
 "        You can also use \"None\" if you wish to remove the admin role.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:252
+#: applicationtool\settings.py:252
 msgid "Admin Role removed."
 msgstr ""
 
-#: tickettool\settings.py:256
+#: applicationtool\settings.py:256
 msgid "Admin Role registered: {role.name}."
 msgstr ""
 
-#: tickettool\settings.py:262
+#: applicationtool\settings.py:262
 #, docstring
 msgid ""
-"Set a role for helpers of the ticket system.\n"
+"Set a role for helpers of the application system.\n"
 "\n"
 "        ``role``: Role.\n"
 "        You can also use \"None\" if you wish to remove the support role.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:269
+#: applicationtool\settings.py:269
 msgid "Support Role removed."
 msgstr ""
 
-#: tickettool\settings.py:273
+#: applicationtool\settings.py:273
 msgid "Support Role registered: {role.name}."
 msgstr ""
 
-#: tickettool\settings.py:279
+#: applicationtool\settings.py:279
 #, docstring
 msgid ""
-"Set a role for creaters of a ticket.\n"
+"Set a role for creaters of an application.\n"
 "\n"
 "        ``role``: Role.\n"
-"        You can also use \"None\" if you wish to remove the ticket role.\n"
+"        You can also use \"None\" if you wish to remove the application role.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:286
-msgid "Ticket Role removed."
+#: applicationtool\settings.py:286
+msgid "Application Role removed."
 msgstr ""
 
-#: tickettool\settings.py:290
-msgid "Ticket Role registered: {role.name}."
+#: applicationtool\settings.py:290
+msgid "Application Role registered: {role.name}."
 msgstr ""
 
-#: tickettool\settings.py:294
+#: applicationtool\settings.py:294
 #, docstring
 msgid ""
-"Set a role for viewers of tickets.\n"
+"Set a role for viewers of applications.\n"
 "\n"
 "        ``role``: Role.\n"
 "        You can also use \"None\" if you wish to remove the view role.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:301
+#: applicationtool\settings.py:301
 msgid "View Role removed."
 msgstr ""
 
-#: tickettool\settings.py:305
+#: applicationtool\settings.py:305
 msgid "View Role registered: {role.name}."
 msgstr ""
 
-#: tickettool\settings.py:309
+#: applicationtool\settings.py:309
 #, docstring
 msgid ""
-"Set a role for pings on ticket creation.\n"
+"Set a role for pings on application creation.\n"
 "\n"
 "        ``role``: Role.\n"
 "        You can also use \"None\" if you wish to remove the ping role.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:316
+#: applicationtool\settings.py:316
 msgid "Ping Role removed."
 msgstr ""
 
-#: tickettool\settings.py:320
+#: applicationtool\settings.py:320
 msgid "Ping Role registered: {role.name}."
 msgstr ""
 
-#: tickettool\settings.py:324
+#: applicationtool\settings.py:324
 #, docstring
-msgid "Max Number of tickets for a member."
+msgid "Max Number of applications for a member."
 msgstr ""
 
-#: tickettool\settings.py:330
-msgid "Max Number of tickets is already set on {nb_max}."
+#: applicationtool\settings.py:330
+msgid "Max Number of applications is already set on {nb_max}."
 msgstr ""
 
-#: tickettool\settings.py:335
-msgid "Max Number of tickets registered: {nb_max}."
+#: applicationtool\settings.py:335
+msgid "Max Number of applications registered: {nb_max}."
 msgstr ""
 
-#: tickettool\settings.py:339
+#: applicationtool\settings.py:339
 #, docstring
 msgid ""
 "Enable or disable Modlog.\n"
@@ -260,15 +260,15 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:347
+#: applicationtool\settings.py:347
 msgid "Modlog is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:351
+#: applicationtool\settings.py:351
 msgid "Modlog state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:355
+#: applicationtool\settings.py:355
 #, docstring
 msgid ""
 "Enable or disable Close on Leave.\n"
@@ -277,15 +277,15 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:363
+#: applicationtool\settings.py:363
 msgid "Close on Leave is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:367
+#: applicationtool\settings.py:367
 msgid "Close on Leave state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:371
+#: applicationtool\settings.py:371
 #, docstring
 msgid ""
 "Enable or disable Create on React.\n"
@@ -295,17 +295,17 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:380
+#: applicationtool\settings.py:380
 msgid "Create on React is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:384
+#: applicationtool\settings.py:384
 msgid ""
 "Create on React state registered: {state}. Remember that this feature will "
 "only work for the `main` profile!"
 msgstr ""
 
-#: tickettool\settings.py:388
+#: applicationtool\settings.py:388
 #, docstring
 msgid ""
 "Enable or disable User Can Close.\n"
@@ -314,15 +314,15 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:396
+#: applicationtool\settings.py:396
 msgid "User Can Close is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:400
+#: applicationtool\settings.py:400
 msgid "User Can Close state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:404
+#: applicationtool\settings.py:404
 #, docstring
 msgid ""
 "Enable or disable Delete On Close.\n"
@@ -331,20 +331,20 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:412
+#: applicationtool\settings.py:412
 msgid "Delete On Close is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:416
+#: applicationtool\settings.py:416
 msgid "Delete On Close state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:422
+#: applicationtool\settings.py:422
 #, docstring
 msgid ""
-"Set the Dinamic Ticket Channel Name.\n"
+"Set the Dinamic Application Channel Name.\n"
 "\n"
-"        `{ticket_id}` - Ticket number\n"
+"        `{application_id}` - Application number\n"
 "        `{owner_display_name}` - user's nick or name\n"
 "        `{owner_name}` - user's name\n"
 "        `{owner_id}` - user's id\n"
@@ -357,16 +357,16 @@ msgid ""
 "        `{longdate}` - mm-dd-yyyy\n"
 "        `{time}` - hh-mm AM/PM according to bot host system time\n"
 "\n"
-"        If, when creating the ticket, an error occurs with this name, another name will be used automatically.\n"
+"        If, when creating the application, an error occurs with this name, another name will be used automatically.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:451
+#: applicationtool\settings.py:451
 #, docstring
 msgid ""
 "Set the Custom Message.\n"
 "\n"
-"        `{ticket_id}` - Ticket number\n"
+"        `{application_id}` - Application number\n"
 "        `{owner_display_name}` - user's nick or name\n"
 "        `{owner_name}` - user's name\n"
 "        `{owner_id}` - user's id\n"
@@ -381,7 +381,7 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:484
+#: applicationtool\settings.py:484
 #, docstring
 msgid ""
 "Set a colour for the embeds.\n"
@@ -391,24 +391,24 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:497 tickettool\settings.py:508
-#: tickettool\settings.py:528 tickettool\settings.py:541
+#: applicationtool\settings.py:497 applicationtool\settings.py:508
+#: applicationtool\settings.py:528 applicationtool\settings.py:541
 msgid "Configure the embed"
 msgstr ""
 
-#: tickettool\settings.py:498
+#: applicationtool\settings.py:498
 msgid "Reset color:"
 msgstr ""
 
-#: tickettool\settings.py:499 tickettool\settings.py:512
+#: applicationtool\settings.py:499 applicationtool\settings.py:512
 msgid "Color:"
 msgstr ""
 
-#: tickettool\settings.py:509
+#: applicationtool\settings.py:509
 msgid "Set color:"
 msgstr ""
 
-#: tickettool\settings.py:517
+#: applicationtool\settings.py:517
 #, docstring
 msgid ""
 "Set a thumbnail for the embeds.\n"
@@ -418,36 +418,36 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:529
+#: applicationtool\settings.py:529
 msgid "Reset thumbnail:"
 msgstr ""
 
-#: tickettool\settings.py:532 tickettool\settings.py:545
+#: applicationtool\settings.py:532 applicationtool\settings.py:545
 msgid "Thumbnail:"
 msgstr ""
 
-#: tickettool\settings.py:542
+#: applicationtool\settings.py:542
 msgid "Set thumbnail:"
 msgstr ""
 
-#: tickettool\settings.py:550
+#: applicationtool\settings.py:550
 #, docstring
 msgid ""
-"Make the author of each action concerning a ticket appear in the server logs.\n"
+"Make the author of each action concerning an application appear in the server logs.\n"
 "\n"
 "        Use `True` (Or `yes`) to enable or `False` (or `no`) to disable.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:558
+#: applicationtool\settings.py:558
 msgid "Audit Logs is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:562
+#: applicationtool\settings.py:562
 msgid "Audit Logs state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:566
+#: applicationtool\settings.py:566
 #, docstring
 msgid ""
 "Enable or disable Close Confirmation.\n"
@@ -456,20 +456,20 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:574
+#: applicationtool\settings.py:574
 msgid "Close Confirmation is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:578
+#: applicationtool\settings.py:578
 msgid "Close Confirmation state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:589
+#: applicationtool\settings.py:589
 #, docstring
 msgid "Set the settings for the button embed."
 msgstr ""
 
-#: tickettool\settings.py:616
+#: applicationtool\settings.py:616
 #, docstring
 msgid ""
 "Enable or disable Rename Channel Dropdown.\n"
@@ -478,436 +478,436 @@ msgid ""
 "        "
 msgstr ""
 
-#: tickettool\settings.py:625
+#: applicationtool\settings.py:625
 msgid "Rename Channel Dropdown is already set on {state}."
 msgstr ""
 
-#: tickettool\settings.py:630
+#: applicationtool\settings.py:630
 msgid "Rename Channel Dropdown state registered: {state}."
 msgstr ""
 
-#: tickettool\settings.py:641
+#: applicationtool\settings.py:641
 #, docstring
 msgid ""
-"Send a message with a button to open a ticket or dropdown with possible reasons.\n"
+"Send a message with a button to open an application or dropdown with possible reasons.\n"
 "\n"
 "        Example:\n"
-"        `[p]setticket message #general \"🐛|Report a bug|If you find a bug, report it here.|bug\" \"⚠️|Report a user|If you find a malicious user, report it here.|user\"`\n"
-"        `[p]setticket 1234567890-0987654321`\n"
+"        `[p]setapplication message #general \"🐛|Report a bug|If you find a bug, report it here.|bug\" \"⚠️|Report a user|If you find a malicious user, report it here.|user\"`\n"
+"        `[p]setapplication 1234567890-0987654321`\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:653
+#: applicationtool\settings.py:653
 msgid "I have to be the author of the message for the interaction to work."
 msgstr ""
 
-#: tickettool\settings.py:684 tickettool\settings.py:780
+#: applicationtool\settings.py:684 applicationtool\settings.py:780
 msgid ""
 "An emoji you selected seems invalid. Check that it is an emoji. If you have "
 "Nitro, you may have used a custom emoji from another server."
 msgstr ""
 
-#: tickettool\settings.py:695 tickettool\settings.py:761
-#: tickettool\tickettool.py:150
-msgid "Create ticket"
+#: applicationtool\settings.py:695 applicationtool\settings.py:761
+#: applicationtool\applicationtool.py:150
+msgid "Create application"
 msgstr ""
 
-#: tickettool\settings.py:843
+#: applicationtool\settings.py:843
 #, docstring
 msgid ""
-"Purge all existing tickets in the config. Does not delete any channels.\n"
+"Purge all existing applications in the config. Does not delete any channels.\n"
 "\n"
-"        All commands associated with the tickets will no longer work.\n"
+"        All commands associated with the applications will no longer work.\n"
 "        "
 msgstr ""
 
-#: tickettool\settings.py:849
-msgid "Do you really want to purge all the tickets in the config?"
+#: applicationtool\settings.py:849
+msgid "Do you really want to purge all the applications in the config?"
 msgstr ""
 
-#: tickettool\settings.py:852
+#: applicationtool\settings.py:852
 msgid ""
-"Does not delete any channels. All commands associated with the tickets will "
+"Does not delete any channels. All commands associated with the applications will "
 "no longer work."
 msgstr ""
 
-#: tickettool\settings.py:878
-msgid "{count} tickets have been removed from the config."
+#: applicationtool\settings.py:878
+msgid "{count} applications have been removed from the config."
 msgstr ""
 
-#: tickettool\tickettool.py:43
+#: applicationtool\applicationtool.py:43
 #, docstring
-msgid "A cog to manage a ticket system!"
+msgid "A cog to manage an application system!"
 msgstr ""
 
-#: tickettool\tickettool.py:86
+#: applicationtool\applicationtool.py:86
 msgid ""
-"To get help on this server or to make an order for example, you can create a ticket.\n"
-"Just use the command `{prefix}ticket create` or click on the button below.\n"
-"You can then use the `{prefix}ticket` subcommand to manage your ticket."
+"To get help on this server or to make an order for example, you can open an application.\n"
+"Just use the command `{prefix}application create` or click on the button below.\n"
+"You can then use the `{prefix}application` subcommand to manage your application."
 msgstr ""
 
-#: tickettool\tickettool.py:166 tickettool\tickettool.py:1406
-#: tickettool\tickettool.py:1426 tickettool\tickettool.py:1580
-#: tickettool\tickettool.py:1604 tickettool\tickettool.py:1666
-#: tickettool\tickettool.py:1690 tickettool\tickettool.py:1839
-#: tickettool\tickettool.py:1863 tickettool\tickettool.py:1923
-#: tickettool\tickettool.py:1947
+#: applicationtool\applicationtool.py:166 applicationtool\applicationtool.py:1406
+#: applicationtool\applicationtool.py:1426 applicationtool\applicationtool.py:1580
+#: applicationtool\applicationtool.py:1604 applicationtool\applicationtool.py:1666
+#: applicationtool\applicationtool.py:1690 applicationtool\applicationtool.py:1839
+#: applicationtool\applicationtool.py:1863 applicationtool\applicationtool.py:1923
+#: applicationtool\applicationtool.py:1947
 msgid "Close"
 msgstr ""
 
-#: tickettool\tickettool.py:173 tickettool\tickettool.py:1413
-#: tickettool\tickettool.py:1433 tickettool\tickettool.py:1587
-#: tickettool\tickettool.py:1611 tickettool\tickettool.py:1673
-#: tickettool\tickettool.py:1697 tickettool\tickettool.py:1846
-#: tickettool\tickettool.py:1870 tickettool\tickettool.py:1930
-#: tickettool\tickettool.py:1954
+#: applicationtool\applicationtool.py:173 applicationtool\applicationtool.py:1413
+#: applicationtool\applicationtool.py:1433 applicationtool\applicationtool.py:1587
+#: applicationtool\applicationtool.py:1611 applicationtool\applicationtool.py:1673
+#: applicationtool\applicationtool.py:1697 applicationtool\applicationtool.py:1846
+#: applicationtool\applicationtool.py:1870 applicationtool\applicationtool.py:1930
+#: applicationtool\applicationtool.py:1954
 msgid "Claim"
 msgstr ""
 
-#: tickettool\tickettool.py:289
-msgid "Action taken for the ticket system."
+#: applicationtool\applicationtool.py:289
+msgid "Action taken for the application system."
 msgstr ""
 
-#: tickettool\tickettool.py:319
-msgid "Ticket ID:"
+#: applicationtool\applicationtool.py:319
+msgid "Application ID:"
 msgstr ""
 
-#: tickettool\tickettool.py:322
+#: applicationtool\applicationtool.py:322
 msgid "Owned by:"
 msgstr ""
 
-#: tickettool\tickettool.py:329
+#: applicationtool\applicationtool.py:329
 msgid "Channel:"
 msgstr ""
 
-#: tickettool\tickettool.py:336
+#: applicationtool\applicationtool.py:336
 msgid "Closed by:"
 msgstr ""
 
-#: tickettool\tickettool.py:344
+#: applicationtool\applicationtool.py:344
 msgid "Deleted by:"
 msgstr ""
 
-#: tickettool\tickettool.py:352
+#: applicationtool\applicationtool.py:352
 msgid "Closed at:"
 msgstr ""
 
-#: tickettool\tickettool.py:356 tickettool\tickettool.py:380
+#: applicationtool\applicationtool.py:356 applicationtool\applicationtool.py:380
 msgid "Reason:"
 msgstr ""
 
-#: tickettool\tickettool.py:364
-msgid "Ticket [{ticket.panel}] {ticket.id} - Action taken"
+#: applicationtool\applicationtool.py:364
+msgid "Application [{application.panel}] {application.id} - Action taken"
 msgstr ""
 
-#: tickettool\tickettool.py:505
+#: applicationtool\applicationtool.py:505
 #, docstring
-msgid "Create a ticket."
+msgid "Open an application."
 msgstr ""
 
-#: tickettool\tickettool.py:515
+#: applicationtool\applicationtool.py:515
 msgid ""
-"The ticket system is not enabled on this server. Please ask an administrator"
-" of this server to use the `{ctx.prefix}ticketset` subcommands to configure "
+"The application system is not enabled on this server. Please ask an administrator"
+" of this server to use the `{ctx.prefix}applicationset` subcommands to configure "
 "it."
 msgstr ""
 
-#: tickettool\tickettool.py:522
+#: applicationtool\applicationtool.py:522
 msgid ""
 "The category `open` or the category `close` have not been configured. Please"
-" ask an administrator of this server to use the `{ctx.prefix}ticketset` "
+" ask an administrator of this server to use the `{ctx.prefix}applicationset` "
 "subcommands to configure it."
 msgstr ""
 
-#: tickettool\tickettool.py:529
-msgid "Sorry. You have already reached the limit of {limit} open tickets."
+#: applicationtool\applicationtool.py:529
+msgid "Sorry. You have already reached the limit of applications you can open to join Rome."
 msgstr ""
 
-#: tickettool\tickettool.py:539
+#: applicationtool\applicationtool.py:539
 msgid ""
 "The bot does not have `manage_channels` permission on the 'open' and 'close'"
-" categories to allow the ticket system to function properly. Please notify "
+" categories to allow the application system to function properly. Please notify "
 "an administrator of this server."
 msgstr ""
 
-#: tickettool\tickettool.py:563
+#: applicationtool\applicationtool.py:563
 #, docstring
 msgid ""
-"Export all the messages of an existing ticket in html format.\n"
+"Export all the messages of an existing application in html format.\n"
 "        Please note: all attachments and user avatars are saved with the Discord link in this file.\n"
 "        "
 msgstr ""
 
-#: tickettool\tickettool.py:584
+#: applicationtool\applicationtool.py:584
 msgid ""
-"Here is the html file of the transcript of all the messages in this ticket.\n"
+"Here is the html file of the transcript of all the messages in this application.\n"
 "Please note: all attachments and user avatars are saved with the Discord link in this file."
 msgstr ""
 
-#: tickettool\tickettool.py:607
+#: applicationtool\applicationtool.py:607
 #, docstring
-msgid "Open an existing ticket."
+msgid "Open an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:611
-msgid "The ticket system is not enabled on this server."
+#: applicationtool\applicationtool.py:611
+msgid "The application system is not enabled on this server."
 msgstr ""
 
-#: tickettool\tickettool.py:637
+#: applicationtool\applicationtool.py:637
 #, docstring
-msgid "Close an existing ticket."
+msgid "Close an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:648
-msgid "Do you really want to close the ticket {ticket.id}?"
+#: applicationtool\applicationtool.py:648
+msgid "Do you really want to close the application {application.id}?"
 msgstr ""
 
-#: tickettool\tickettool.py:686
+#: applicationtool\applicationtool.py:686
 #, docstring
-msgid "Rename an existing ticket."
+msgid "Rename an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:712
+#: applicationtool\applicationtool.py:712
 #, docstring
 msgid ""
-"Delete an existing ticket.\n"
-"        If a log channel is defined, an html file containing all the messages of this ticket will be generated.\n"
+"Delete an existing application.\n"
+"        If a log channel is defined, an html file containing all the messages of this application will be generated.\n"
 "        (Attachments are not supported, as they are saved with their Discord link)\n"
 "        "
 msgstr ""
 
-#: tickettool\tickettool.py:720
+#: applicationtool\applicationtool.py:720
 msgid ""
-"Do you really want to delete all the messages of the ticket {ticket.id}?"
+"Do you really want to delete all the messages of the application {application.id}?"
 msgstr ""
 
-#: tickettool\tickettool.py:723
+#: applicationtool\applicationtool.py:723
 msgid ""
 "If a log channel is defined, an html file containing all the messages of "
-"this ticket will be generated. (Attachments are not supported, as they are "
+"this application will be generated. (Attachments are not supported, as they are "
 "saved with their Discord link)"
 msgstr ""
 
-#: tickettool\tickettool.py:761
+#: applicationtool\applicationtool.py:761
 #, docstring
-msgid "Claim an existing ticket."
+msgid "Claim an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:785
+#: applicationtool\applicationtool.py:785
 #, docstring
-msgid "Unclaim an existing ticket."
+msgid "Unclaim an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:811
+#: applicationtool\applicationtool.py:811
 #, docstring
-msgid "Change the owner of an existing ticket."
+msgid "Change the owner of an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:838
+#: applicationtool\applicationtool.py:838
 #, docstring
-msgid "Add a member to an existing ticket."
+msgid "Add a member to an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:864
+#: applicationtool\applicationtool.py:864
 #, docstring
-msgid "Remove a member to an existing ticket."
+msgid "Remove a member to an existing application."
 msgstr ""
 
-#: tickettool\tickettool.py:889 tickettool\tickettool.py:1003
-#: tickettool\tickettool.py:1058
+#: applicationtool\applicationtool.py:889 applicationtool\applicationtool.py:1003
+#: applicationtool\applicationtool.py:1058
 msgid "The panel for which this button was configured no longer exists."
 msgstr ""
 
-#: tickettool\tickettool.py:896 tickettool\tickettool.py:955
-#: tickettool\tickettool.py:1010 tickettool\tickettool.py:1069
+#: applicationtool\applicationtool.py:896 applicationtool\applicationtool.py:955
+#: applicationtool\applicationtool.py:1010 applicationtool\applicationtool.py:1069
 msgid "You are not allowed to execute this command."
 msgstr ""
 
-#: tickettool\tickettool.py:900 tickettool\tickettool.py:1014
-msgid "You have chosen to create a ticket."
+#: applicationtool\applicationtool.py:900 applicationtool\applicationtool.py:1014
+msgid "You have chosen to open an application."
 msgstr ""
 
-#: tickettool\tickettool.py:907 tickettool\tickettool.py:1021
+#: applicationtool\applicationtool.py:907 applicationtool\applicationtool.py:1021
 msgid ""
-"You have chosen to close this ticket. If this is not done, you do not have "
+"You have chosen to close this application. If this is not done, you do not have "
 "the necessary permissions to execute this command."
 msgstr ""
 
-#: tickettool\tickettool.py:915 tickettool\tickettool.py:1029
+#: applicationtool\applicationtool.py:915 applicationtool\applicationtool.py:1029
 msgid ""
-"You have chosen to claim this ticket. If this is not done, you do not have "
+"You have chosen to claim this application. If this is not done, you do not have "
 "the necessary permissions to execute this command."
 msgstr ""
 
-#: tickettool\tickettool.py:937
-msgid "This message is not in TicketTool config."
+#: applicationtool\applicationtool.py:937
+msgid "This message is not in ApplicationTool config."
 msgstr ""
 
-#: tickettool\tickettool.py:942
+#: applicationtool\applicationtool.py:942
 msgid "The panel for which this dropdown was configured no longer exists."
 msgstr ""
 
-#: tickettool\tickettool.py:974 tickettool\tickettool.py:1090
-msgid "You have chosen to create a ticket with the reason `{reason}`."
+#: applicationtool\applicationtool.py:974 applicationtool\applicationtool.py:1090
+msgid "You have chosen to open an application with the reason `{reason}`."
 msgstr ""
 
-#: tickettool\tickettool.py:1053
-msgid "This message is not in TicketTool Config."
+#: applicationtool\applicationtool.py:1053
+msgid "This message is not in ApplicationTool Config."
 msgstr ""
 
-#: tickettool\tickettool.py:1218
+#: applicationtool\applicationtool.py:1218
 msgid "No reason provided."
 msgstr ""
 
-#: tickettool\tickettool.py:1356
-msgid "Creating the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1356
+msgid "Creating the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1390 tickettool\tickettool.py:1896
+#: applicationtool\applicationtool.py:1390 applicationtool\applicationtool.py:1896
 msgid ""
-"🎟️ Ticket ID: {ticket.id}\n"
-"🔥 Channel ID: {ticket.channel.id}\n"
-"🕵️ Ticket created by: @{ticket.created_by.display_name} ({ticket.created_by.id})\n"
-"☢️ Ticket reason: {ticket.reason}\n"
-"👥 Ticket claimed by: Nobody."
+"🎟️ Application ID: {application.id}\n"
+"🔥 Channel ID: {application.channel.id}\n"
+"🕵️ Application created by: @{application.created_by.display_name} ({application.created_by.id})\n"
+"☢️ Application reason: {application.reason}\n"
+"👥 Application claimed by: Nobody."
 msgstr ""
 
-#: tickettool\tickettool.py:1447 tickettool\tickettool.py:1493
-msgid "Ticket Created"
+#: applicationtool\applicationtool.py:1447 applicationtool\applicationtool.py:1493
+msgid "Application Created"
 msgstr ""
 
-#: tickettool\tickettool.py:1448
-msgid "Thank you for creating a ticket on this server!"
+#: applicationtool\applicationtool.py:1448
+msgid "Thank you for creating an application on this server!"
 msgstr ""
 
-#: tickettool\tickettool.py:1494
-msgid "The ticket was created by {ticket.created_by}."
+#: applicationtool\applicationtool.py:1494
+msgid "The application was created by {application.created_by}."
 msgstr ""
 
-#: tickettool\tickettool.py:1499
-msgid "Report on the creation of the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1499
+msgid "Report on the creation of the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1539
-msgid "Opening the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1539
+msgid "Opening the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1555 tickettool\tickettool.py:1563
-msgid "Ticket Opened"
+#: applicationtool\applicationtool.py:1555 applicationtool\applicationtool.py:1563
+msgid "Application Opened"
 msgstr ""
 
-#: tickettool\tickettool.py:1564
-msgid "The ticket was opened by {ticket.opened_by}."
+#: applicationtool\applicationtool.py:1564
+msgid "The application was opened by {application.opened_by}."
 msgstr ""
 
-#: tickettool\tickettool.py:1569 tickettool\tickettool.py:1655
-msgid "Report on the close of the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1569 applicationtool\applicationtool.py:1655
+msgid "Report on the close of the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1717
+#: applicationtool\applicationtool.py:1717
 msgid ""
-"Renaming the ticket {ticket.id}. (`{ticket.channel.name}` to `{new_name}`)"
+"Renaming the application {application.id}. (`{application.channel.name}` to `{new_name}`)"
 msgstr ""
 
-#: tickettool\tickettool.py:1729
-msgid "Ticket Renamed."
+#: applicationtool\applicationtool.py:1729
+msgid "Application Renamed."
 msgstr ""
 
-#: tickettool\tickettool.py:1742
-msgid "Deleting the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1742
+msgid "Deleting the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1752
-msgid "Ticket Deleted"
+#: applicationtool\applicationtool.py:1752
+msgid "Application Deleted"
 msgstr ""
 
-#: tickettool\tickettool.py:1753
-msgid "The ticket was deleted by {ticket.deleted_by}."
+#: applicationtool\applicationtool.py:1753
+msgid "The application was deleted by {application.deleted_by}."
 msgstr ""
 
-#: tickettool\tickettool.py:1780
-msgid "Report on the deletion of the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1780
+msgid "Report on the deletion of the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1801 tickettool\tickettool.py:1893
-msgid "Claiming the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1801 applicationtool\applicationtool.py:1893
+msgid "Claiming the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1804
-msgid "A bot cannot claim a ticket."
+#: applicationtool\applicationtool.py:1804
+msgid "A bot cannot claim an application."
 msgstr ""
 
-#: tickettool\tickettool.py:1807
+#: applicationtool\applicationtool.py:1807
 msgid ""
-"🎟️ Ticket ID: {ticket.id}\n"
-"🔥 Channel ID: {ticket.channel.id}\n"
-"🕵️ Ticket created by: @{ticket.created_by.display_name} ({ticket.created_by.id})\n"
-"☢️ Ticket reason: {ticket.reason}\n"
-"👥 Ticket claimed by: @{ticket.claim.display_name}."
+"🎟️ Application ID: {application.id}\n"
+"🔥 Channel ID: {application.channel.id}\n"
+"🕵️ Application created by: @{application.created_by.display_name} ({application.created_by.id})\n"
+"☢️ Application reason: {application.reason}\n"
+"👥 Application claimed by: @{application.claim.display_name}."
 msgstr ""
 
-#: tickettool\tickettool.py:1977
-msgid "Changing owner of the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:1977
+msgid "Changing owner of the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:1981
-msgid "You cannot transfer ownership of a ticket to a bot."
+#: applicationtool\applicationtool.py:1981
+msgid "You cannot transfer ownership of an application to a bot."
 msgstr ""
 
-#: tickettool\tickettool.py:2010
+#: applicationtool\applicationtool.py:2010
 msgid "Owner Modified."
 msgstr ""
 
-#: tickettool\tickettool.py:2026
-msgid "Adding a member to the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:2026
+msgid "Adding a member to the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:2037
-msgid "You cannot add a bot to a ticket. ({member})"
+#: applicationtool\applicationtool.py:2037
+msgid "You cannot add a bot to an application. ({member})"
 msgstr ""
 
-#: tickettool\tickettool.py:2043
-msgid "This member is already the owner of this ticket. ({member})"
+#: applicationtool\applicationtool.py:2043
+msgid "This member is already the owner of this application. ({member})"
 msgstr ""
 
-#: tickettool\tickettool.py:2050
+#: applicationtool\applicationtool.py:2050
 msgid ""
-"This member is an administrator for the ticket system. They will always have"
-" access to the ticket anyway. ({member})"
+"This member is an administrator for the application system. They will always have"
+" access to the application anyway. ({member})"
 msgstr ""
 
-#: tickettool\tickettool.py:2057
-msgid "This member already has access to this ticket. ({member})"
+#: applicationtool\applicationtool.py:2057
+msgid "This member already has access to this application. ({member})"
 msgstr ""
 
-#: tickettool\tickettool.py:2085
-msgid "Removing a member to the ticket {ticket.id}."
+#: applicationtool\applicationtool.py:2085
+msgid "Removing a member to the application {application.id}."
 msgstr ""
 
-#: tickettool\tickettool.py:2099
-msgid "You cannot remove a bot to a ticket ({member})."
+#: applicationtool\applicationtool.py:2099
+msgid "You cannot remove a bot to an application ({member})."
 msgstr ""
 
-#: tickettool\tickettool.py:2105
-msgid "You cannot remove the owner of this ticket. ({member})"
+#: applicationtool\applicationtool.py:2105
+msgid "You cannot remove the owner of this application. ({member})"
 msgstr ""
 
-#: tickettool\tickettool.py:2112
+#: applicationtool\applicationtool.py:2112
 msgid ""
-"This member is an administrator for the ticket system. They will always have"
-" access to the ticket. ({member})"
+"This member is an administrator for the application system. They will always have"
+" access to the application. ({member})"
 msgstr ""
 
-#: tickettool\tickettool.py:2119
+#: applicationtool\applicationtool.py:2119
 msgid ""
-"This member is not in the list of those authorised to access the ticket. "
+"This member is not in the list of those authorised to access the application. "
 "({member})"
 msgstr ""
 
-#: tickettool\utils.py:103
+#: applicationtool\utils.py:103
 msgid ""
 "Emoji Label must be An emoji followed by an string, and optionnaly by a "
-"description and a value (for rename ticket channel), separated by either "
+"description and a value (for rename application channel), separated by either "
 "`;`, `,`, `|`, or `-`."
 msgstr ""

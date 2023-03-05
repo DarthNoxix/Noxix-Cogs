@@ -11,21 +11,21 @@ except ImportError:
     from emoji import EMOJI_DATA  # emoji>=2.0.0
 
 
-_ = Translator("TicketTool", __file__)
+_ = Translator("ApplicationTool", __file__)
 
 
 class utils:
-    async def get_overwrites(self, ticket):
-        config = await ticket.bot.get_cog("TicketTool").get_config(ticket.guild, ticket.panel)
+    async def get_overwrites(self, application):
+        config = await application.bot.get_cog("ApplicationTool").get_config(application.guild, application.panel)
         overwrites = {
-            ticket.owner: discord.PermissionOverwrite(
+            application.owner: discord.PermissionOverwrite(
                 view_channel=True,
                 read_messages=True,
                 read_message_history=True,
                 send_messages=True,
                 attach_files=True,
             ),
-            ticket.guild.me: discord.PermissionOverwrite(
+            application.guild.me: discord.PermissionOverwrite(
                 view_channel=True,
                 read_messages=True,
                 read_message_history=True,
@@ -35,20 +35,20 @@ class utils:
                 manage_channels=True,
                 manage_permissions=True,
             ),
-            ticket.guild.default_role: discord.PermissionOverwrite(
+            application.guild.default_role: discord.PermissionOverwrite(
                 view_channel=False,
             ),
         }
-        if ticket.claim is not None:
-            overwrites[ticket.claim] = discord.PermissionOverwrite(
+        if application.claim is not None:
+            overwrites[application.claim] = discord.PermissionOverwrite(
                 view_channel=True,
                 read_messages=True,
                 read_message_history=True,
                 send_messages=True,
                 attach_files=True,
             )
-        if config["admin_role"] is not None:
-            overwrites[config["admin_role"]] = discord.PermissionOverwrite(
+        if config["gov_role"] is not None:
+            overwrites[config["gov_role"]] = discord.PermissionOverwrite(
                 view_channel=True,
                 read_messages=True,
                 read_message_history=True,
@@ -56,8 +56,8 @@ class utils:
                 attach_files=True,
                 manage_messages=True,
             )
-        if config["support_role"] is not None:
-            overwrites[config["support_role"]] = discord.PermissionOverwrite(
+        if config["ia_role"] is not None:
+            overwrites[config["ia_role"]] = discord.PermissionOverwrite(
                 view_channel=True,
                 read_messages=True,
                 read_message_history=True,
@@ -104,7 +104,7 @@ class EmojiLabelDescriptionValueConverter(discord.ext.commands.Converter):
         except Exception:
             raise discord.ext.commands.BadArgument(
                 _(
-                    "Emoji Label must be An emoji followed by an string, and optionnaly by a description and a value (for rename ticket channel), separated by either `;`, `,`, `|`, or `-`."
+                    "Emoji Label must be An emoji followed by an string, and optionnaly by a description and a value (for rename application channel), separated by either `;`, `,`, `|`, or `-`."
                 )
             )
         emoji = await Emoji().convert(ctx, emoji)

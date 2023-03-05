@@ -672,7 +672,7 @@ class CogsUtils(commands.Cog):
                 "RolesButtons": 370638632963,
                 "Seen": 864398642893,
                 "SimpleSanction": 793615829052,
-                "TicketTool": 937480369417,
+                "ApplicationTool": 937480369417,
                 "UrlButtons": 974269742704,
             }
             if cog.qualified_name not in cogs_with_old_config_custom_ids:

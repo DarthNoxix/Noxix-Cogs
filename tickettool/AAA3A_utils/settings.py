@@ -692,7 +692,7 @@ class Settings:
         await data.set_raw(
             *self.global_path, profile, value=await data.get_raw(*self.global_path, old_profile)
         )
-        if self.cog.qualified_name == "TicketTool":
+        if self.cog.qualified_name == "ApplicationTool":
             await data.set_raw(*self.global_path, profile, "last_nb", value=0)
 
     async def remove_profile(
@@ -701,9 +701,9 @@ class Settings:
         if not confirmation:
             embed: discord.Embed = discord.Embed()
             embed.title = _("Do you really want to remove this profile?")
-            if self.cog.qualified_name == "TicketTool":
+            if self.cog.qualified_name == "ApplicationTool":
                 embed.description = _(
-                    "All tickets associated with this profile will be removed from the Config, but the channels will still exist. Commands related to the tickets will no longer work."
+                    "All applications associated with this profile will be removed from the Config, but the channels will still exist. Commands related to the applications will no longer work."
                 )
             embed.color = 0xF00020
             response = await self.cog.cogsutils.ConfirmationAsk(ctx, embed=embed)
@@ -711,8 +711,8 @@ class Settings:
                 return
         data = self.get_data(ctx=ctx)
         await data.clear_raw(*self.global_path, profile)
-        if self.cog.qualified_name == "TicketTool":
-            data = await self.cog.config.guild(ctx.guild).tickets.all()
+        if self.cog.qualified_name == "ApplicationTool":
+            data = await self.cog.config.guild(ctx.guild).applications.all()
             to_remove = []
             for channel in data:
                 if data[channel].get("panel", "main") == profile:
@@ -722,7 +722,7 @@ class Settings:
                     del data[channel]
                 except KeyError:
                     pass
-            await self.cog.config.guild(ctx.guild).tickets.set(data)
+            await self.cog.config.guild(ctx.guild).applications.set(data)
 
     async def rename_profile(self, ctx: commands.Context, old_profile: str, profile: str) -> None:
         if len(profile) > 10:
@@ -737,8 +737,8 @@ class Settings:
             *self.global_path, profile, value=await data.get_raw(*self.global_path, old_profile)
         )
         await data.clear_raw(*self.global_path, old_profile)
-        if self.cog.qualified_name == "TicketTool":
-            data = await self.cog.config.guild(ctx.guild).tickets.all()
+        if self.cog.qualified_name == "ApplicationTool":
+            data = await self.cog.config.guild(ctx.guild).applications.all()
             to_edit = []
             for channel in data:
                 if data[channel]["panel"] == old_profile:
@@ -748,7 +748,7 @@ class Settings:
                     data[channel]["panel"] = profile
                 except KeyError:
                     pass
-            await self.cog.config.guild(ctx.guild).tickets.set(data)
+            await self.cog.config.guild(ctx.guild).applications.set(data)
 
     async def list_profiles(self, ctx: commands.Context) -> None:
         """List the existing profiles."""
